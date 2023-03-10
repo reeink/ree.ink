@@ -1,0 +1,11 @@
+---
+import config from '@config';
+---
+
+{
+  (config.fonts.google) && (config.fonts.google.link !== "") && (
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href={config.fonts.google.link} rel="stylesheet">
+  )
+}

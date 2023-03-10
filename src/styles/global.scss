@@ -1,0 +1,84 @@
+:root {
+  --main-font-family: 'Libre Baskerville', 'Noto Serif SC', serif;
+
+  --color-primary-r: 42;
+  --color-primary-g: 109;
+  --color-primary-b: 244;
+  --color-primary-a: 0.8;
+  --color-primary: rgb(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b));
+  --color-primary-rgba: rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), var(--color-primary-a));
+  --color-selection-a: 0.3;
+  --color-selection: rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), var(--color-selection-a));
+
+  --color-contrast-higher-r: 28;
+  --color-contrast-higher-g: 28;
+  --color-contrast-higher-b: 28;
+  --color-contrast-higher: rgb(var(--color-contrast-higher-r), var(--color-contrast-higher-g), var(--color-contrast-higher-b));
+
+  --color-contrast-high-r: 83;
+  --color-contrast-high-g: 83;
+  --color-contrast-high-b: 83;
+  --color-contrast-high: rgb(var(--color-contrast-high-r), var(--color-contrast-high-g), var(--color-contrast-high-b));
+
+  --color-contrast-medium-r: 142;
+  --color-contrast-medium-g: 142;
+  --color-contrast-medium-b: 142;
+  --color-contrast-medium: rgb(var(--color-contrast-medium-r), var(--color-contrast-medium-g), var(--color-contrast-medium-b));
+
+  --color-contrast-low-r: 200;
+  --color-contrast-low-g: 200;
+  --color-contrast-low-b: 200;
+  --color-contrast-low: rgb(var(--color-contrast-low-r), var(--color-contrast-low-g), var(--color-contrast-low-b));
+
+  --color-contrast-lower-r: 255;
+  --color-contrast-lower-g: 255;
+  --color-contrast-lower-b: 255;
+  --color-contrast-lower: rgb(var(--color-contrast-lower-r), var(--color-contrast-lower-g), var(--color-contrast-lower-b));
+}
+
+body {
+  $padding: 1rem;
+  font-family: var(--main-font-family);
+  margin: 0;
+  padding: $padding;
+  min-height: calc(100vh - #{$padding * 2});
+
+  *::selection {
+    background-color: var(--color-selection);
+  }
+
+  color: var(--color-contrast-higher);
+  background: var(--color-contrast-lower);
+
+  &,
+  * {
+    transition: all 0.5s ease;
+  }
+}
+
+.center {
+  margin: 10rem auto 2rem;
+  max-width: 40rem;
+}
+
+p {
+  line-height: 2em;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: justify;
+}
+
+a {
+  color: var(--color-contrast-high);
+  cursor: pointer;
+  text-decoration: underline var(--color-contrast-medium);
+
+  &:visited {
+    text-decoration: underline var(--color-contrast-medium);
+  }
+
+  &:hover {
+    color: var(--color-primary-rgba);
+    text-decoration: underline var(--color-primary-rgba);
+  }
+}
