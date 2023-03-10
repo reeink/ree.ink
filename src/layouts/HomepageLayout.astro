@@ -1,0 +1,19 @@
+---
+export const prerender = true;
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import AuthorBadge from "@/components/AuthorBadge.astro"
+import Nav from "@/components/Nav.astro";
+import config from "@config";
+---
+
+<BaseLayout>
+  <meta property="og:title" content={config.base.title} slot="head"/>
+  <meta property="og:description" content={config.base.description} slot="head"/>
+  <title slot="head">{config.base.title}</title>
+
+  <h1 class="author-badge"><AuthorBadge /></h1>
+  <Nav />
+  <article>
+    <slot />
+  </article>
+</BaseLayout>
