@@ -36,23 +36,22 @@
   --color-contrast-lower: rgb(var(--color-contrast-lower-r), var(--color-contrast-lower-g), var(--color-contrast-lower-b));
 }
 
+@mixin default-transition {
+  transition: all 0.5s ease;
+}
+
 body {
   $padding: 1rem;
   font-family: var(--main-font-family);
   margin: 0;
   padding: $padding;
   min-height: calc(100vh - #{$padding * 2});
+  color: var(--color-contrast-higher);
+  background: var(--color-contrast-lower);
+  @include default-transition;
 
   *::selection {
     background-color: var(--color-selection);
-  }
-
-  color: var(--color-contrast-higher);
-  background: var(--color-contrast-lower);
-
-  &,
-  * {
-    transition: all 0.5s ease;
   }
 }
 
@@ -72,6 +71,7 @@ a {
   color: var(--color-contrast-high);
   cursor: pointer;
   text-decoration: underline var(--color-contrast-medium);
+  @include default-transition;
 
   &:visited {
     text-decoration: underline var(--color-contrast-medium);
