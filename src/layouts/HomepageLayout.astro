@@ -1,16 +1,21 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import AuthorBadge from "@/components/AuthorBadge.astro"
 import Nav from "@/components/Nav.astro";
 import config from "@config";
+
+const { frontmatter } = Astro.props;
+const title = frontmatter.title
+  ? `${frontmatter.title} | ${config.base.title}`
+  : config.base.title;
+const description = frontmatter.description || config.base.description;
 ---
 
 <BaseLayout>
-  <meta property="og:title" content={config.base.title} slot="head"/>
-  <meta property="og:description" content={config.base.description} slot="head"/>
-  <title slot="head">{config.base.title}</title>
+  <meta property="og:title" content={title} slot="head" />
+  <meta property="og:description" content={description} slot="head" />
+  <title slot="head">{title}</title>
 
-  <h1 class="author-badge"><AuthorBadge /></h1>
+  <h1>{frontmatter.title ? frontmatter.title : config.base.title}</h1>
   <Nav />
   <article>
     <slot />

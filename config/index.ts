@@ -26,14 +26,19 @@ export const defineConfig = (
     }),
   };
 
-  conf.authorBadge = {
-    ...conf.authorBadge,
-    ...(<types.AuthorBadge>{
-      prefix: "@",
-      author: conf.base.author,
-      suffix: "",
-    }),
-  };
+  conf.nav =
+    conf.nav ||
+    <Array<types.Page>>[
+      { name: "Home", uri: "/" },
+      { name: "Archive", uri: "/archive" },
+      { name: "Settings", uri: "/settings" },
+    ];
+
+  conf.footer =
+    conf.footer ||
+    <types.Footer>{
+      copyright: `<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a> 2021-${new Date().getFullYear()} © ${conf.base.author}`,
+    };
 
   return conf as types.RequiredConfig;
 };
