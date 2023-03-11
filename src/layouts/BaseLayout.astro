@@ -1,6 +1,7 @@
 ---
 import config from "@config";
 import Fonts from "@/components/Fonts.astro";
+import Footer from "@/components/Footer.astro";
 import "@/styles/global.scss";
 ---
 
@@ -8,13 +9,14 @@ import "@/styles/global.scss";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <Fonts />
     <slot name="head" />
   </head>
   <body>
     <div class="center">
       <slot />
+      <footer><Footer /></footer>
     </div>
   </body>
 </html>
