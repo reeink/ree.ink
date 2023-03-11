@@ -9,6 +9,8 @@ export interface Base {
   title?: string /* 网站标题 */;
 
   description?: string /* 网站描述 */;
+
+  keywords?: string /* 网站关键词 */;
 }
 
 export interface Fonts {

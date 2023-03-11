@@ -10,6 +10,7 @@ export const defineConfig = (
       lang: "en",
       title: "Reeink's Blog",
       description: "A Simple Blog Powered by Astro",
+      keywords: "reeink, Blog, Astro, Markdown",
     }),
   };
 

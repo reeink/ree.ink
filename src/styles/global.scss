@@ -15,9 +15,9 @@
   --color-contrast-higher-b: 28;
   --color-contrast-higher: rgb(var(--color-contrast-higher-r), var(--color-contrast-higher-g), var(--color-contrast-higher-b));
 
-  --color-contrast-high-r: 83;
-  --color-contrast-high-g: 83;
-  --color-contrast-high-b: 83;
+  --color-contrast-high-r: 90;
+  --color-contrast-high-g: 90;
+  --color-contrast-high-b: 90;
   --color-contrast-high: rgb(var(--color-contrast-high-r), var(--color-contrast-high-g), var(--color-contrast-high-b));
 
   --color-contrast-medium-r: 142;
@@ -61,10 +61,10 @@ nav {
 
 footer {
   margin: 1rem 0;
-  color: var(--color-contrast-medium);
+  color: var(--color-contrast-high);
 
   a {
-    color: var(--color-contrast-medium);
+    color: var(--color-contrast-high);
     text-decoration: none;
   }
 }
@@ -77,7 +77,7 @@ p {
 }
 
 a {
-  color: var(--color-contrast-high);
+  color: var(--color-contrast-higher);
   cursor: pointer;
   text-decoration: underline var(--color-contrast-medium);
   transition: all 0.5s ease;
