@@ -5,7 +5,7 @@ body {
   padding-bottom: 0;
 
   .center {
-    height: 100vh;
+    min-height: var(--100vh, 100vh);
     display: flex;
     flex-direction: column;
   }
