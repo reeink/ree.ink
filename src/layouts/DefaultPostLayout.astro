@@ -1,0 +1,18 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import type { Frontmatter } from "@/pages/posts/[...slug].astro";
+import "@/styles/default_post.scss"
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
+const { frontmatter } = Astro.props as Props;
+---
+
+<BaseLayout>
+  <article>
+    <h1 class="title">{frontmatter.title}</h1>
+    <slot />
+  </article>
+</BaseLayout>

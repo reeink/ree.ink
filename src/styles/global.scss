@@ -1,38 +1,92 @@
+@use "sass:map";
+
+$colors-light: (
+  --color-primary-r: 42,
+  --color-primary-g: 109,
+  --color-primary-b: 244,
+  --color-primary-a: 0.8,
+  --color-selection-a: 0.3,
+  --color-contrast-higher-r: 28,
+  --color-contrast-higher-g: 28,
+  --color-contrast-higher-b: 28,
+  --color-contrast-high-r: 90,
+  --color-contrast-high-g: 90,
+  --color-contrast-high-b: 90,
+  --color-contrast-medium-r: 142,
+  --color-contrast-medium-g: 142,
+  --color-contrast-medium-b: 142,
+  --color-contrast-low-r: 248,
+  --color-contrast-low-g: 248,
+  --color-contrast-low-b: 248,
+  --color-contrast-lower-r: 255,
+  --color-contrast-lower-g: 255,
+  --color-contrast-lower-b: 255,
+);
+
+$colors-dark: (
+  --color-primary-r: 42,
+  --color-primary-g: 109,
+  --color-primary-b: 244,
+  --color-primary-a: 0.8,
+  --color-selection-a: 0.3,
+  --color-contrast-higher-r: 255,
+  --color-contrast-higher-g: 255,
+  --color-contrast-higher-b: 255,
+  --color-contrast-high-r: 248,
+  --color-contrast-high-g: 248,
+  --color-contrast-high-b: 248,
+  --color-contrast-medium-r: 142,
+  --color-contrast-medium-g: 142,
+  --color-contrast-medium-b: 142,
+  --color-contrast-low-r: 40,
+  --color-contrast-low-g: 40,
+  --color-contrast-low-b: 40,
+  --color-contrast-lower-r: 28,
+  --color-contrast-lower-g: 28,
+  --color-contrast-lower-b: 28,
+);
+
+@mixin apply-theme($colors) {
+  @each $key, $value in $colors {
+    #{$key}: $value;
+  }
+}
+
+$color-themes: (
+  "light": $colors-light,
+  "dark": $colors-dark,
+);
+
+@each $mode in map-keys($color-themes) {
+  :root[theme=#{$mode}] {
+    @if map-has-key($color-themes, $mode) {
+      @include apply-theme(map.get($color-themes, $mode));
+    }
+  }
+}
+
+:root[theme="auto"] {
+  @each $mode in "light", "dark" {
+    @media (prefers-color-scheme: $mode) {
+      @if map-has-key($color-themes, $mode) {
+        @include apply-theme(map.get($color-themes, $mode));
+      }
+    }
+  }
+}
+
+
 :root {
   --main-font-family: 'Libre Baskerville', 'Noto Serif SC', serif;
+  --mono-font-family: 'Fira Code', sans-serif;
 
-  --color-primary-r: 42;
-  --color-primary-g: 109;
-  --color-primary-b: 244;
-  --color-primary-a: 0.8;
   --color-primary: rgb(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b));
   --color-primary-rgba: rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), var(--color-primary-a));
-  --color-selection-a: 0.3;
   --color-selection: rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), var(--color-selection-a));
-
-  --color-contrast-higher-r: 28;
-  --color-contrast-higher-g: 28;
-  --color-contrast-higher-b: 28;
   --color-contrast-higher: rgb(var(--color-contrast-higher-r), var(--color-contrast-higher-g), var(--color-contrast-higher-b));
-
-  --color-contrast-high-r: 90;
-  --color-contrast-high-g: 90;
-  --color-contrast-high-b: 90;
   --color-contrast-high: rgb(var(--color-contrast-high-r), var(--color-contrast-high-g), var(--color-contrast-high-b));
-
-  --color-contrast-medium-r: 142;
-  --color-contrast-medium-g: 142;
-  --color-contrast-medium-b: 142;
   --color-contrast-medium: rgb(var(--color-contrast-medium-r), var(--color-contrast-medium-g), var(--color-contrast-medium-b));
-
-  --color-contrast-low-r: 200;
-  --color-contrast-low-g: 200;
-  --color-contrast-low-b: 200;
   --color-contrast-low: rgb(var(--color-contrast-low-r), var(--color-contrast-low-g), var(--color-contrast-low-b));
-
-  --color-contrast-lower-r: 255;
-  --color-contrast-lower-g: 255;
-  --color-contrast-lower-b: 255;
   --color-contrast-lower: rgb(var(--color-contrast-lower-r), var(--color-contrast-lower-g), var(--color-contrast-lower-b));
 }
 
@@ -60,20 +114,13 @@ nav {
 }
 
 footer {
-  margin: 1rem 0;
+  margin: 2em 0;
   color: var(--color-contrast-high);
 
   a {
     color: var(--color-contrast-high);
     text-decoration: none;
   }
-}
-
-p {
-  line-height: 2em;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-  text-align: justify;
 }
 
 a {

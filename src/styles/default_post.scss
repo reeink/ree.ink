@@ -1,0 +1,69 @@
+@import "./shiki.scss";
+
+/* Article Margins */
+$margin-article: (
+  h1: 2em,
+  h2: 1em,
+  h3: 1.4em,
+  h4: 1.3em,
+  h5: 1.2em,
+  h6: 1.1em,
+  p: 0.618em
+);
+
+/* Article Font Sizes */
+$fontsize-article: (
+  h1: 2rem,
+  h2: 1.5rem,
+  h3: 1.31rem,
+  h4: 1.17rem,
+  h5: 1.08rem,
+  h6: 1rem,
+  p: 1rem
+);
+
+/* Article Line Height */
+$line-height-article-default: 2rem;
+$line-height-article: (
+);
+
+article {
+  .title {
+    text-align: center;
+  }
+
+  line-height: $line-height-article-default;
+
+  @each $tag in map-keys($margin-article) {
+    #{$tag} {
+      margin: map-get($margin-article, $tag) 0;
+    }
+  }
+
+  @each $tag in map-keys($fontsize-article) {
+    #{$tag} {
+      font-size: map-get($fontsize-article, $tag);
+    }
+  }
+
+  @each $tag in map-keys($line-height-article) {
+    #{$tag} {
+      line-height: map-get($line-height-article, $tag);
+    }
+  }
+
+  p {
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: justify;
+  }
+
+  pre.astro-code {
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+  }
+
+  code {
+    font-family: var(--mono-font-family);
+  }
+}

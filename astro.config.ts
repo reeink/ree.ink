@@ -9,4 +9,10 @@ export default defineConfig({
   adapter: cloudflare({
     mode: "directory",
   }),
+  markdown: {
+    shikiConfig: {
+      theme: 'css-variables',
+      wrap: true,
+    },
+  }
 });

@@ -1,0 +1,55 @@
+@use "sass:map";
+
+$vitesse-light-shiki-vars: (
+  "--astro-code-color-background": var(--color-contrast-low),
+  "--astro-code-color-text": var(--color-contrast-high),
+  "--astro-code-token-constant": #660000,
+  "--astro-code-token-string": #b56959,
+  "--astro-code-token-comment": var(--color-contrast-medium),
+  "--astro-code-token-keyword": #1e754f,
+  "--astro-code-token-parameter": #AA0000,
+  "--astro-code-token-function": #998418,
+  "--astro-code-token-string-expression": #b56959,
+  "--astro-code-token-punctuation": #2993a3,
+  "--astro-code-token-link": #EE0000
+);
+
+$vitesse-dark-shiki-vars: (
+  "--astro-code-color-background": var(--color-contrast-low),
+  "--astro-code-color-text": var(--color-contrast-high),
+  "--astro-code-token-constant": #79BD9A,
+  "--astro-code-token-string": var(--color-contrast-medium),
+  "--astro-code-token-comment": #747C84,
+  "--astro-code-token-keyword": #D484C8,
+  "--astro-code-token-parameter": #F2777A,
+  "--astro-code-token-function": #95C76F,
+  "--astro-code-token-variable": #66CCCC,
+  "--astro-code-token-punctuation": #CBD6E2
+);
+
+$shiki-theme: (
+  "light": $vitesse-light-shiki-vars,
+  "dark": $vitesse-dark-shiki-vars
+);
+
+@each $mode in map-keys($shiki-theme) {
+  :root[theme=#{$mode}] {
+    @if map-has-key($shiki-theme, $mode) {
+      @each $key, $value in map.get($shiki-theme, $mode) {
+        #{$key}: $value;
+      }
+    }
+  }
+}
+
+:root[theme="auto"] {
+  @each $mode in "light", "dark" {
+    @media (prefers-color-scheme: $mode) {
+      @if map-has-key($shiki-theme, $mode) {
+        @each $key, $value in map.get($shiki-theme, $mode) {
+          #{$key}: $value;
+        }
+      }
+    }
+  }
+}
