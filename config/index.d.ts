@@ -13,6 +13,8 @@ export interface Base {
   keywords?: string /* 网站关键词 */;
 
   theme?: string /* 网站默认色彩主题，默认为`auto`，即随系统主题变化 */;
+
+  brand?: string /* 网站品牌，支持HTML */;
 }
 
 export interface Fonts {

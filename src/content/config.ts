@@ -14,3 +14,5 @@ const postCollection = defineCollection({
 export const collections = {
   "posts": postCollection,
 };
+
+export type Collection = keyof typeof collections;

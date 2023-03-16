@@ -1,0 +1,34 @@
+---
+import { collections } from "@/content/config";
+import type { Collection } from "@/content/config";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import DefaultPostLayout from "@/layouts/DefaultPostLayout.astro";
+
+export async function getStaticPaths() {
+  const allCollections = Object.keys(collections) as Collection[];
+  const allEntriesRaw = await Promise.all(
+    allCollections.map((collection) => getCollection(collection))
+  );
+  const allEntries = allEntriesRaw.flat().filter(
+    (entry) => entry.data.draft !== true
+  );;
+  return allEntries.map((entry) => ({
+    params: { collection: entry.collection, slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<Collection>;
+}
+export const prerender = true;
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+
+export type Entry = typeof entry;
+---
+
+<DefaultPostLayout entry={entry}>
+  <Content />
+</DefaultPostLayout>

@@ -1,0 +1,32 @@
+---
+import config from "@config";
+import Nav from "@/components/Nav.astro";
+
+const nav = config.nav;
+---
+
+<div class="top-nav">
+  <a class="brand" href="/"><div set:html={config.base.brand} /></a>
+  <div><Nav /></div>
+</div>
+
+
+<style lang="scss">
+  @import "../styles/variables.scss";
+
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    height: $height-top-nav;
+    align-items: center;
+    
+    a {
+      color: var(--color-contrast-high);
+      text-decoration: none;
+    }
+  }
+
+  div :global(nav) {
+    margin: 0;
+  }
+</style>

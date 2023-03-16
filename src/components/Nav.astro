@@ -1,11 +1,25 @@
 ---
 import config from "@config";
 
+interface Props {
+  align?: "left" | "center" | "right";
+}
+
 const nav = config.nav;
+const { align } = Astro.props as Props;
 ---
 
 <nav>
-  {nav.map((page) => <a href={page.uri}>{page.name}</a> <span class="dot">·</span>)}
+  <div class="base" align={align || "left"}>
+    {
+      nav.map((page) => (
+        <>
+          <a href={page.uri}>{page.name}</a>
+          <span class="dot">·</span>
+        </>
+      ))
+    }
+  </div>
 </nav>
 
 <style lang="scss">
@@ -17,11 +31,18 @@ const nav = config.nav;
 
   .dot:not(:last-child) {
     display: inline-block;
+    user-select: none;
     margin: 0 0.5rem;
     color: var(--color-contrast-high);
   }
 
   .dot:last-child {
     display: none;
+  }
+
+  @each $align in left, center, right {
+    .base[align=#{$align}] {
+      text-align: $align;
+    }
   }
 </style>

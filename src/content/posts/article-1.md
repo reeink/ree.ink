@@ -2,8 +2,6 @@
 title: Lorem Ipsum
 ---
 
-## Lorem Ipsum
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce justo sem, vulputate sed porta ut, aliquet vel odio. Nulla ut tortor ut nisi pulvinar maximus. Pellentesque ultricies lacus sit amet purus faucibus volutpat. Maecenas id mi auctor, accumsan turpis et, viverra enim. Nunc faucibus enim a maximus ullamcorper. Nulla tempus in nibh eget elementum. Curabitur vel diam quis arcu faucibus cursus. Sed in pharetra massa. Duis sed aliquam mauris, vitae imperdiet tortor. Duis consectetur libero tellus, ut pellentesque tellus elementum et. Ut vitae suscipit erat.
 
 In hac habitasse platea dictumst. Integer congue, nulla sed ultrices dictum, sem lectus viverra felis, et sodales lorem arcu ac sem. Pellentesque tempus vulputate convallis. Sed augue augue, porttitor sit amet tempus sed, vulputate sit amet metus. Nunc gravida purus eu sapien sagittis dapibus. Nulla vitae metus nec diam pellentesque fermentum vitae nec purus. Vestibulum ut quam sagittis velit ultrices eleifend eget vitae dolor. Phasellus venenatis, elit vel convallis commodo, felis lectus dictum sapien, ac vestibulum est mauris vel mi. Cras porta libero eget augue auctor interdum. Nulla tortor diam, commodo sed fermentum a, lobortis ac elit. Sed venenatis ac libero in ullamcorper. Integer quis nunc massa. Morbi at pharetra ex. Duis blandit lacus mi, et maximus nibh maximus in.

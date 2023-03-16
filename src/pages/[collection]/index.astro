@@ -1,0 +1,16 @@
+---
+import { collections } from "@/content/config";
+import CollectionLayout from "@/layouts/CollectionLayout.astro";
+
+export function getStaticPaths() {
+  return Object.keys(collections).map((collection) => ({
+    params: { collection },
+    props: { collection },
+  }));
+}
+
+export const prerender = true;
+const { collection } = Astro.props;
+---
+
+<CollectionLayout collection={collection} />

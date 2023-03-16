@@ -8,10 +8,11 @@ export const defineConfig = (
     ...(<types.Base>{
       author: "reeink",
       lang: "en",
-      title: "Reeink's Blog",
+      title: "Astro Theme Lithe",
       description: "A Simple Blog Powered by Astro",
       keywords: "reeink, Blog, Astro, Markdown",
       theme: "auto",
+      brand: "Astro Theme Lithe",
     }),
   };
 

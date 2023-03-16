@@ -19,9 +19,16 @@ const description = frontmatter.description || config.base.description;
   <meta name="keywords" content={config.base.keywords} slot="head">
   <meta name="author" content={config.base.author} slot="head">
   
-  <h1>{frontmatter.title ? frontmatter.title : config.base.title}</h1>
+  <h1 class="title">{frontmatter.title ? frontmatter.title : config.base.title}</h1>
   <Nav />
   <article>
     <slot />
   </article>
 </BaseLayout>
+
+<style lang="scss">
+  @import "../styles/variables.scss";
+  .title {
+    margin-top: $margin-top-default;
+  }
+</style>

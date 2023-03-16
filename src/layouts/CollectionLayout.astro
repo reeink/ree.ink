@@ -1,0 +1,30 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import TopNav from "@/components/TopNav.astro";
+import "@/styles/collection.scss";
+
+interface Props {
+  collection: string;
+}
+
+const { collection } = Astro.props as Props;
+---
+
+<BaseLayout>
+  <div class="top">
+    <TopNav />
+  </div>
+  
+  <h1 class="title">{collection}</h1>
+</BaseLayout>
+
+<style lang="scss">
+  @import "../styles/variables.scss";
+
+  .title {
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+</style>

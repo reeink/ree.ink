@@ -1,18 +1,19 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import type { Frontmatter } from "@/pages/posts/[...slug].astro";
+import type { Entry } from "@/pages/posts/[...slug].astro";
 import "@/styles/default_post.scss"
 
 interface Props {
-  frontmatter: Frontmatter;
+  entry: Entry;
 }
 
-const { frontmatter } = Astro.props as Props;
+const { entry } = Astro.props as Props;
+export const prerender = true;
 ---
 
 <BaseLayout>
   <article>
-    <h1 class="title">{frontmatter.title}</h1>
+    <h1 class="title">{ entry.data.title || entry.slug }</h1>
     <slot />
   </article>
 </BaseLayout>
