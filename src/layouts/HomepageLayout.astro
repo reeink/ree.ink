@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Nav from "@/components/Nav.astro";
+import Footer from "@/components/Footer.astro";
 import config from "@config";
 import "@/styles/default_post.scss"
 
@@ -24,6 +25,7 @@ const description = frontmatter.description || config.base.description;
   <article>
     <slot />
   </article>
+  <footer><Footer /></footer>
 </BaseLayout>
 
 <style lang="scss">

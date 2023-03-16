@@ -4,10 +4,11 @@ const postCollection = defineCollection({
   schema: z.object({
     title: z.string().optional(),
     description: z.string().optional(),
-    tags: z.array(z.string().url()).optional(),
-    createdTime: z.date().optional(),
-    lastModifiedTime: z.date().optional(),
-    draft: z.boolean().optional().default(false),
+    tags: z.array(z.string().url()).default([]),
+    createdTime: z.date().default(new Date(0)),
+    modifiedTime: z.date().default(new Date(0)),
+    publishedTime: z.date().default(new Date(0)),
+    draft: z.boolean().default(false),
   }),
 });
 

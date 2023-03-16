@@ -1,21 +1,65 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import TopNav from "@/components/TopNav.astro";
+import Footer from "@/components/Footer.astro";
 import "@/styles/collection.scss";
+import { getCollection } from "astro:content";
+import type { Collection } from "@/content/config";
 
 interface Props {
-  collection: string;
+  collection: Collection;
 }
 
 const { collection } = Astro.props as Props;
+const entries = await getCollection(collection);
+const posts = entries
+  .map((entry) => {
+    return {
+      title: entry.data.title || entry.slug,
+      slug: entry.slug,
+      publishedTime: entry.data.publishedTime,
+    };
+  })
+  .sort((a, b) => {
+    if (a.publishedTime === b.publishedTime) {
+      return a.title.localeCompare(b.title);
+    } else {
+      return b.publishedTime > a.publishedTime ? 1 : -1;
+    }
+  });
+
+const locale = "en";
+const dateFormater = new Intl.DateTimeFormat(locale, {
+  month: "long",
+  day: "numeric",
+});
 ---
 
 <BaseLayout>
-  <div class="top">
+  <header class="top">
     <TopNav />
-  </div>
-  
-  <h1 class="title">{collection}</h1>
+  </header>
+  <main>
+    <h1 class="title">{collection}</h1>
+
+    <ul class="collection-index">
+      {
+        posts.map((post) => {
+          return (
+            <a class="post-entry" href={`/${collection}/${post.slug}`}>
+              <li>
+                <span class="post-title">{post.title}</span>
+                <span class="post-date">
+                  {dateFormater.format(post.publishedTime)}
+                </span>
+              </li>
+            </a>
+          );
+        })
+      }
+    </ul>
+  </main>
+  <footer><Footer /></footer>
 </BaseLayout>
 
 <style lang="scss">
