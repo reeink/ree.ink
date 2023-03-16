@@ -11,6 +11,8 @@ export interface Base {
   description?: string /* 网站描述 */;
 
   keywords?: string /* 网站关键词 */;
+
+  theme?: string /* 网站默认色彩主题，默认为`auto`，即随系统主题变化 */;
 }
 
 export interface Fonts {
