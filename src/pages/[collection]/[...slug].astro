@@ -25,8 +25,6 @@ interface Props {
 export const prerender = true;
 const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
-
-export type Entry = typeof entry;
 ---
 
 <DefaultPostLayout entry={entry}>

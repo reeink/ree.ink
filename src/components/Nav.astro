@@ -23,12 +23,6 @@ const { align } = Astro.props as Props;
 </nav>
 
 <style lang="scss">
-  a {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--color-contrast-high);
-  }
-
   .dot:not(:last-child) {
     display: inline-block;
     user-select: none;
@@ -41,7 +35,7 @@ const { align } = Astro.props as Props;
   }
 
   @each $align in left, center, right {
-    .base[align=#{$align}] {
+    .base[align="#{$align}"] {
       text-align: $align;
     }
   }

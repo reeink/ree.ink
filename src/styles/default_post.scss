@@ -1,4 +1,6 @@
 @import "./shiki.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
 
 /* Article Margins */
 $margin-article: (
@@ -26,6 +28,8 @@ $fontsize-article: (
 $line-height-article-default: 2rem;
 $line-height-article: (
 );
+
+@include layout-3parts();
 
 article {
   .title {
@@ -58,6 +62,22 @@ article {
     text-align: justify;
   }
 
+  a {
+    color: var(--color-contrast-higher);
+    cursor: pointer;
+    text-decoration: underline var(--color-contrast-medium);
+    transition: all 0.5s ease;
+  
+    &:visited {
+      text-decoration: underline var(--color-contrast-medium);
+    }
+  
+    &:hover {
+      color: var(--color-primary-rgba);
+      text-decoration: underline var(--color-primary-rgba);
+    }
+  }
+
   pre.astro-code {
     padding: 0.5em 1em;
     border-radius: 0.5em;
@@ -65,5 +85,10 @@ article {
 
   code {
     font-family: var(--mono-font-family);
+  }
+
+  img {
+    max-width: 100%;
+    margin: 0 auto;
   }
 }

@@ -2,7 +2,6 @@
 import BaseLayout from "./BaseLayout.astro";
 import TopNav from "@/components/TopNav.astro";
 import Footer from "@/components/Footer.astro";
-import "@/styles/collection.scss";
 import { getCollection } from "astro:content";
 import type { Collection } from "@/content/config";
 
@@ -71,4 +70,59 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
     margin-top: 2em;
     margin-bottom: 2em;
   }
+
+  
+  .collection-index {
+    padding: 0;
+    margin: 5rem 0;
+  }
+
+  .post-entry {
+    text-decoration: none;
+    display: block;
+    margin-top: 0.8rem;
+
+    &:hover {
+      text-decoration: none;
+
+      li {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+      }
+
+      li::before {
+        color: var(--color-primary);
+      }
+    }
+
+    li {
+      display: flex;
+      padding: 0.8rem 0;
+
+      border-bottom: 1px dashed var(--color-contrast-medium);
+
+      &::before {
+        content: "•";
+        margin: 0 0.5rem;
+        color: var(--color-contrast-medium);
+      }
+
+      span {
+        margin: 0;
+      }
+
+      .post-title {
+        margin-right: auto;
+      }
+
+      .post-date {
+        margin: 0 0.5rem;
+      }
+    }
+  }
+</style>
+
+<style is:global lang="scss">
+  @import "../styles/mixins.scss";
+  @include layout-3parts();
 </style>

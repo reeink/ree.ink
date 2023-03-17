@@ -1,5 +1,15 @@
 ---
-import config from "@config"
+import config from "@config";
 ---
 
-<div set:html={config.footer.copyright}></div>
+<div class="footer">
+  <div set:html={config.footer.copyright} />
+</div>
+
+<style lang="scss">
+  @import "../styles/variables.scss";
+  .footer {
+    margin: $margin-footer;
+    color: var(--color-contrast-high);
+  }
+</style>

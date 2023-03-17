@@ -107,31 +107,17 @@ body {
 
 .center {
   margin: auto;
-  max-width: 40rem;
-}
-
-nav {
-  margin: 1rem 0;
-}
-
-footer {
-  margin: 1rem  0 $margin-bottom-default;
-  color: var(--color-contrast-high);
-
-  a {
-    color: var(--color-contrast-high);
-    text-decoration: none;
-  }
+  max-width: $max-width-center;
 }
 
 a {
-  color: var(--color-contrast-higher);
+  color: var(--color-contrast-high);
   cursor: pointer;
-  text-decoration: underline var(--color-contrast-medium);
+  text-decoration: none;
   transition: all 0.5s ease;
 
   &:visited {
-    text-decoration: underline var(--color-contrast-medium);
+    text-decoration: none;
   }
 
   &:hover {

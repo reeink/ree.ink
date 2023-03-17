@@ -2,11 +2,12 @@
 import BaseLayout from "./BaseLayout.astro";
 import TopNav from "@/components/TopNav.astro";
 import Footer from "@/components/Footer.astro";
-import type { Entry } from "@/pages/posts/[...slug].astro";
-import "@/styles/default_post.scss"
+import type { CollectionEntry } from "astro:content";
+import type { Collection } from "@/content/config";
+import "@/styles/default_post.scss";
 
 interface Props {
-  entry: Entry;
+  entry: CollectionEntry<Collection>;
 }
 
 const { entry } = Astro.props as Props;
@@ -17,11 +18,11 @@ export const prerender = true;
   <header><TopNav /></header>
   <main>
     <article>
-      <h1 class="title">{ entry.data.title || entry.slug }</h1>
+      <h1 class="title">{entry.data.title || entry.slug}</h1>
       <slot />
     </article>
   </main>
   <footer>
-    <footer><Footer /></footer>
+    <Footer />
   </footer>
 </BaseLayout>

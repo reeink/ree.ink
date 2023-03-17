@@ -3,7 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Nav from "@/components/Nav.astro";
 import Footer from "@/components/Footer.astro";
 import config from "@config";
-import "@/styles/default_post.scss"
+import "@/styles/default_post.scss";
 
 const { frontmatter } = Astro.props;
 const title = frontmatter.title
@@ -16,16 +16,18 @@ const description = frontmatter.description || config.base.description;
   <title slot="head">{title}</title>
   <meta property="og:title" content={title} slot="head" />
   <meta property="og:description" content={description} slot="head" />
-  <meta name="description" content={description} slot="head">
-  <meta name="keywords" content={config.base.keywords} slot="head">
-  <meta name="author" content={config.base.author} slot="head">
-  
-  <h1 class="title">{frontmatter.title ? frontmatter.title : config.base.title}</h1>
+  <meta name="description" content={description} slot="head" />
+  <meta name="keywords" content={config.base.keywords} slot="head" />
+  <meta name="author" content={config.base.author} slot="head" />
+
+  <h1 class="title">
+    {frontmatter.title ? frontmatter.title : config.base.title}
+  </h1>
   <Nav />
   <article>
     <slot />
   </article>
-  <footer><Footer /></footer>
+  <Footer />
 </BaseLayout>
 
 <style lang="scss">

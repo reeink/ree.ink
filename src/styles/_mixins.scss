@@ -1,0 +1,27 @@
+@import "./variables.scss";
+
+@mixin layout-3parts {
+  body {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .center {
+      min-height: var(--100vh, 100vh);
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  header {
+    flex: initial
+  }
+
+  main {
+    flex: auto
+  }
+
+  footer {
+    text-align: center;
+    flex: initial;
+  }
+}
