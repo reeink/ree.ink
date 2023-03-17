@@ -14,7 +14,11 @@ export interface Base {
 
   theme?: string /* 网站默认色彩主题，默认为`auto`，即随系统主题变化 */;
 
-  brand?: string /* 网站品牌，支持HTML */;
+  brand?: {
+    type: "text" | "svg" /* 网站品牌类型，支持文本和SVG */;
+    text?: string /* 网站品牌文本，支持HTML */;
+    svg?: string /* 网站品牌svg链接 */;
+  }
 }
 
 export interface Fonts {

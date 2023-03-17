@@ -12,7 +12,10 @@ export const defineConfig = (
       description: "A Simple Blog Powered by Astro",
       keywords: "reeink, Blog, Astro, Markdown",
       theme: "auto",
-      brand: "Astro Lithe",
+      brand: {
+        type: "text",
+        text: "Lithe",
+      }
     }),
   };
 
