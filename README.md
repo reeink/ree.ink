@@ -60,5 +60,5 @@ pnpm preview
 
 - Using your git repo in [Cloudflare Pages](https://pages.cloudflare.com)
 - Config `build.command` to `npm install -g pnpm && pnpm install && pnpm build`
-- Config Environment Variables `NODE_ENV` to `16.13.0`
+- Config Environment Variables `NODE_VERSION` to `16.13.0`
 - Confirm the build and deploy
