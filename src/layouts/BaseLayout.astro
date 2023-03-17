@@ -3,7 +3,6 @@ import config from "@config";
 import Fonts from "@/components/Fonts.astro";
 import "@/styles/global.scss";
 import { pwaInfo } from "virtual:pwa-info";
-import ReloadPrompt from '@/components/ReloadPrompt.astro';
 ---
 
 <html lang={config.base.lang} theme={config.base.theme}>
@@ -19,13 +18,12 @@ import ReloadPrompt from '@/components/ReloadPrompt.astro';
       const vh100 = window.innerHeight;
       document.documentElement.style.setProperty("--100vh", `${vh100}px`);
     </script>
-    <script src="/src/pwa.ts"></script>
+    <script src="@/scripts/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
   <body>
     <div class="center">
       <slot />
     </div>
-    <ReloadPrompt />
   </body>
 </html>
