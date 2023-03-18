@@ -1,0 +1,30 @@
+---
+import config from "@config";
+const comments = config.comments;
+---
+
+{
+  comments.type === "giscus" && (
+    <div class="comments">
+      <script
+        src={comments.src}
+        data-repo={comments.data_repo}
+        data-repo-id={comments.data_repo_id}
+        data-category={comments.data_category}
+        data-category-id={comments.data_category_id}
+        data-mapping={comments.data_mapping}
+        data-strict={comments.data_strict}
+        data-reactions-enabled={comments.data_reactions_enabled}
+        data-emit-metadata={comments.data_emit_metadata}
+        data-input-position={comments.data_input_position}
+        data-theme={comments.data_theme}
+        data-lang={config.base.lang}
+        data-loading={comments.data_loading}
+        crossorigin={comments.crossorigin}
+        async
+      />
+    </div>
+  )
+}
+
+<style lang="scss"></style>

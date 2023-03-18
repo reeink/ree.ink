@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import TopNav from "@/components/TopNav.astro";
+import Comments from "@/components/Comments.astro";
 import Footer from "@/components/Footer.astro";
 import type { CollectionEntry } from "astro:content";
 import type { Collection } from "@/content/config";
@@ -21,6 +22,7 @@ export const prerender = true;
       <h1 class="title">{entry.data.title || entry.slug}</h1>
       <slot />
     </article>
+    <Comments />
   </main>
   <footer>
     <Footer />

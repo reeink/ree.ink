@@ -42,6 +42,23 @@ export interface Page {
   uri: string /* 页面路径 */;
 }
 
+export interface GiscusComments {
+  type: "giscus";
+  src: string;
+  data_repo: string;
+  data_repo_id: string;
+  data_category: string;
+  data_category_id: string;
+  data_mapping: string;
+  data_strict: string;
+  data_reactions_enabled: string;
+  data_emit_metadata: string;
+  data_input_position: string;
+  data_theme: string;
+  data_loading: string;
+  crossorigin: string;
+}
+
 export interface Footer {
   copyright: string /* 版权信息，支持HTML */;
 }
@@ -55,6 +72,9 @@ export interface Config {
 
   // 导航页配置
   nav: Page[];
+
+  // 评论配置
+  comments: GiscusComments;
 
   // 页脚配置
   footer: Footer;
