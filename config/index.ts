@@ -40,6 +40,23 @@ export const defineConfig = (
       { name: "Posts", uri: "/posts" },
       { name: "Settings", uri: "/settings" },
     ];
+  
+  conf.comments = conf.comments || <types.GiscusComments>{
+    type: "giscus",
+    src: "https://giscus.app/client.js",
+    data_repo: "sperjar/astro-lithe",
+    data_repo_id: "R_kgDOJG_UwQ",
+    data_category: "Comments",
+    data_category_id: "DIC_kwDOJG_Uwc4CU8_P",
+    data_mapping: "pathname",
+    data_strict: "0",
+    data_reactions_enabled: "1",
+    data_emit_metadata: "0",
+    data_input_position: "top",
+    data_theme: "preferred_color_scheme",
+    data_loading: "lazy",
+    crossorigin: "anonymous",
+  }
 
   conf.footer =
     conf.footer ||
