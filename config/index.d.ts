@@ -42,6 +42,10 @@ export interface Page {
   uri: string /* 页面路径 */;
 }
 
+export type NoneComments = {
+  type: "none";
+}
+
 export interface GiscusComments {
   type: "giscus";
   src: string;
@@ -74,7 +78,7 @@ export interface Config {
   nav: Page[];
 
   // 评论配置
-  comments: GiscusComments;
+  comments: NoneComments | GiscusComments;
 
   // 页脚配置
   footer: Footer;
