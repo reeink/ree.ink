@@ -8,10 +8,8 @@ export default defineConfig({
   integrations: [
     mdx(),
     AstroPWA({
-      mode: "development",
-      base: "/",
-      scope: "/",
       includeAssets: [],
+      registerType: "autoUpdate",
       manifest: {
         name: config.base.title,
         short_name: config.base.title,
@@ -48,7 +46,9 @@ export default defineConfig({
       },
       workbox: {
         navigateFallback: "/404",
-        globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
+        globPatterns: [
+          "**/*.{css,js,html,svg,png,ico,jpg,jpeg,webp,txt,woff,woff2}",
+        ],
       },
       devOptions: {
         enabled: false,
