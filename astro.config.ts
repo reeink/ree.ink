@@ -1,6 +1,5 @@
 import config from "./site.config";
 import { defineConfig } from "astro/config";
-import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
 import AstroPWA from "@vite-pwa/astro";
 
