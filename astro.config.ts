@@ -52,15 +52,11 @@ export default defineConfig({
         globPatterns: ["**/*.{css,js,html,svg,png,ico,txt}"],
       },
       devOptions: {
-        enabled: true,
+        enabled: false,
         navigateFallbackAllowlist: [/^\/404$/],
       },
     }),
   ],
-  output: "server",
-  adapter: cloudflare({
-    mode: "directory",
-  }),
   markdown: {
     shikiConfig: {
       theme: "css-variables",
