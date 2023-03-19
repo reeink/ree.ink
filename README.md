@@ -6,7 +6,6 @@
 
 - Fast and lightweight powered by [Astro](https://astro.build)
 - Lithe and minimalistic design
-- Cloudflare Pages SSR
 - PWA support
 - Dark mode
 
