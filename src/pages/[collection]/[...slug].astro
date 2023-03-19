@@ -22,7 +22,6 @@ export async function getStaticPaths() {
 interface Props {
   entry: CollectionEntry<Collection>;
 }
-export const prerender = true;
 const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
 ---
