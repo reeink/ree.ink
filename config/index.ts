@@ -4,7 +4,6 @@ export const defineConfig = (
   conf: Partial<types.Config>
 ): types.RequiredConfig => {
   conf.base = {
-    ...conf.base,
     ...(<types.Base>{
       author: "reeink",
       lang: "en",
@@ -15,13 +14,14 @@ export const defineConfig = (
       brand: {
         type: "text",
         text: "Lithe",
-      }
+      },
     }),
+    ...conf.base,
   };
 
-  conf.fonts = {
-    ...conf.fonts,
-    ...(<types.Fonts>{
+  conf.fonts =
+    conf.fonts ||
+    <types.Fonts>{
       google: {
         fonts: [
           { name: "Libre Baskerville", type: "serif" },
@@ -30,8 +30,7 @@ export const defineConfig = (
         ],
         link: "https://fonts.googleapis.com/css2?family=Fira+Code&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap",
       },
-    }),
-  };
+    };
 
   conf.nav =
     conf.nav ||
@@ -40,23 +39,25 @@ export const defineConfig = (
       { name: "Posts", uri: "/posts" },
       { name: "Settings", uri: "/settings" },
     ];
-  
-  conf.comments = conf.comments || <types.GiscusComments>{
-    type: "giscus",
-    src: "https://giscus.app/client.js",
-    data_repo: "sperjar/astro-lithe",
-    data_repo_id: "R_kgDOJG_UwQ",
-    data_category: "Comments",
-    data_category_id: "DIC_kwDOJG_Uwc4CU8_P",
-    data_mapping: "pathname",
-    data_strict: "0",
-    data_reactions_enabled: "1",
-    data_emit_metadata: "0",
-    data_input_position: "top",
-    data_theme: "preferred_color_scheme",
-    data_loading: "lazy",
-    crossorigin: "anonymous",
-  }
+
+  conf.comments =
+    conf.comments ||
+    <types.GiscusComments>{
+      type: "giscus",
+      src: "https://giscus.app/client.js",
+      data_repo: "sperjar/astro-lithe",
+      data_repo_id: "R_kgDOJG_UwQ",
+      data_category: "Comments",
+      data_category_id: "DIC_kwDOJG_Uwc4CU8_P",
+      data_mapping: "pathname",
+      data_strict: "0",
+      data_reactions_enabled: "1",
+      data_emit_metadata: "0",
+      data_input_position: "top",
+      data_theme: "preferred_color_scheme",
+      data_loading: "lazy",
+      crossorigin: "anonymous",
+    };
 
   conf.footer =
     conf.footer ||
