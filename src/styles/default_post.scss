@@ -25,7 +25,6 @@ $fontsize-article: (
 );
 
 /* Article Line Height */
-$line-height-article-default: 2rem;
 $line-height-article: (
 );
 
@@ -81,10 +80,6 @@ article {
   pre.astro-code {
     padding: 0.5em 1em;
     border-radius: 0.5em;
-  }
-
-  code {
-    font-family: var(--mono-font-family);
   }
 
   img {

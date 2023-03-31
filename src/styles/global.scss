@@ -103,6 +103,10 @@ body {
   *::selection {
     background-color: var(--color-selection);
   }
+
+  code {
+    font-family: var(--mono-font-family);
+  }
 }
 
 .center {
