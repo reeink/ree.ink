@@ -4,6 +4,7 @@ import {
   presetMini,
   presetWebFonts,
   presetAttributify,
+  presetTagify,
   transformerDirectives,
 } from "unocss";
 
@@ -24,6 +25,7 @@ export default defineConfig({
   presets: [
     presetMini(),
     presetAttributify(),
+    presetTagify(),
     presetIcons({
       cdn: 'https://esm.sh/',
       extraProperties: {
