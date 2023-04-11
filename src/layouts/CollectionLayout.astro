@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import TopNav from "@/components/TopNav.astro";
-import Footer from "@/components/Footer.astro";
+import MetaInfo from "@/components/MetaInfo.astro";
+import SideNav from "@/components/SideNav.astro";
 import { getCollection } from "astro:content";
 import type { Collection } from "@/content/config";
 
@@ -29,19 +29,25 @@ const posts = entries
 
 const locale = "en";
 const dateFormater = new Intl.DateTimeFormat(locale, {
-  month: "long",
+  month: "short",
   day: "numeric",
 });
 ---
 
 <BaseLayout>
-  <header class="top">
-    <TopNav />
-  </header>
-  <main>
-    <h1 class="title">{collection}</h1>
+  <!-- header meta info -->
+  <MetaInfo slot="head" />
 
-    <ul class="collection-index">
+  <!-- left side nav -->
+  <nav h-full slot="left">
+    <fixed w-20 h-full p-2>
+      <SideNav />
+    </fixed>
+  </nav>
+
+  <main class="center-content">
+    <h1 class="title" text="center 4xl" font-display my-20>{collection}</h1>
+    <ul class="collection-index" font-serif>
       {
         posts.map((post) => {
           return (
@@ -58,20 +64,11 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
       }
     </ul>
   </main>
-  <footer><Footer /></footer>
 </BaseLayout>
 
 <style lang="scss">
   @import "../styles/variables.scss";
 
-  .title {
-    text-align: center;
-    text-transform: capitalize;
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-
-  
   .collection-index {
     padding: 0;
     margin: 5rem 0;

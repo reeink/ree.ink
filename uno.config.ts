@@ -38,6 +38,7 @@ export default defineConfig({
       fonts: {
         serif: ["Libre Baskerville:400,700", "Noto Serif SC:400,700"],
         mono: ["Fira Code"],
+        display: ["Cinzel Decorative"],
       },
     }),
   ],

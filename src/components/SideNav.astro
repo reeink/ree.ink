@@ -1,0 +1,130 @@
+---
+const themeNavConfig = {
+  type: "theme-switch",
+  order: 5,
+  themes: {
+    auto: {
+      name: "Theme Auto",
+      icon: "i-carbon-window-black-saturation",
+    },
+    light: {
+      name: "Theme Light",
+      icon: "i-carbon-light",
+    },
+    dark: {
+      name: "Theme Dark",
+      icon: "i-carbon-moon",
+    }
+  }
+}
+
+type ThemeNavConfig = typeof themeNavConfig;
+
+const linksNavConfig = [
+  { name: "Home", type: "link", order:0, icon: "i-carbon-campsite", link: "/"},
+  { name: "Posts", type: "link", order:1, icon: "i-carbon-data-2", link: "/posts" },
+  { name: "Search", type: "link", order:2, icon: "i-carbon-search", link: "/search" },
+];
+
+type LinkNavConfig = typeof linksNavConfig[0];
+
+const navConfig = [
+  themeNavConfig,
+  ...linksNavConfig,
+].sort((a, b) => a.order - b.order);
+---
+
+<div class="side-nav" h-full w-full>
+  <flex-col>
+    {
+      navConfig.map((item) => {
+        switch(item.type) {
+          case "link":
+            const linkItem = item as LinkNavConfig;
+            return (
+              <a href={linkItem.link} title={linkItem.name}>
+                <div class="bkg">
+                  <div class={`icon ${linkItem.icon}`} />
+                </div>
+              </a>
+            )
+
+          case "theme-switch":
+            const themeSwitchItems = (item as ThemeNavConfig).themes;
+            return (
+              <a title={themeSwitchItems.auto.name} theme="auto" class="theme-switch">
+                <div class="bkg">
+                  <div class={`icon ${themeSwitchItems.auto.icon}`} />
+                </div>
+              </a>
+              <a title={themeSwitchItems.light.name} theme="light" class="theme-switch">
+                <div class="bkg">
+                  <div class={`icon ${themeSwitchItems.light.icon}`} />
+                </div>
+              </a>
+              <a title={themeSwitchItems.dark.name} theme="dark" class="theme-switch">
+                <div class="bkg">
+                  <div class={`icon ${themeSwitchItems.dark.icon}`} />
+                </div>
+              </a>
+            );
+        }
+      })
+    }
+  </flex-col>
+</div>
+
+<script>
+  import { toggleThemeByIndex } from "@/scripts/theme";
+  const themeSwitches = document.querySelectorAll(".theme-switch");
+  for (let themeSwitch of themeSwitches) {
+    themeSwitch.addEventListener("click", toggleThemeByIndex);
+  }
+</script>
+
+<style lang="scss" scoped>
+  a {
+    display: block !important;
+    position: relative;
+    width: 100%;
+    &:before {
+      content: " ";
+      display: block;
+      width: 100%;
+      padding-top: 100%;
+    }
+
+    * {
+      @apply transition-all duration-600;
+    }
+
+    > .bkg {
+      &:hover {
+        border-radius: 1rem;
+        background-color: rgba(
+          var(--color-primary-r),
+          var(--color-primary-g),
+          var(--color-primary-b),
+          0.1
+        );
+        > .icon {
+          color: var(--color-primary-rgba) !important;
+        }
+      }
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+
+      > .icon {
+        color: var(--color-contrast-high) !important;
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        width: 40%;
+        height: 40%;
+      }
+    }
+  }
+</style>

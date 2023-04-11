@@ -9,7 +9,6 @@ import { pwaInfo } from "virtual:pwa-info";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
     <slot name="head" />
 
     <!-- get 100vh on mobile devices -->
@@ -24,9 +23,16 @@ import { pwaInfo } from "virtual:pwa-info";
     <script src="@/scripts/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
-  <body>
-    <div class="center">
-      <slot />
-    </div>
+
+  <body flex>
+    <div class="left"><slot name="left" /></div>
+    <div class="center" flex-auto><slot /></div>
+    <div class="right"><slot name="right" /></div>
   </body>
 </html>
+
+<style lang="scss">
+  body {
+    min-height: var(--100vh);
+  }
+</style>

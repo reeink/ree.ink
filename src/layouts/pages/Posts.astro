@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../BaseLayout.astro";
+import MetaInfo from "@/components/MetaInfo.astro";
+import SideNav from "@/components/SideNav.astro";
+import Comments from "@/components/Comments.astro";
+import { PostSchema } from "@/scripts/posts";
+
+interface Props {
+  frontmatter: any;
+}
+
+const { frontmatter } = Astro.props as Props;
+const data = PostSchema.parse(frontmatter);
+---
+
+<BaseLayout>
+  <!-- header meta info -->
+  <MetaInfo slot="head" />
+
+  <!-- left side nav -->
+  <nav h-full slot="left">
+    <fixed w-20 h-full p-2>
+      <SideNav />
+    </fixed>
+  </nav>
+
+  <!-- main content -->
+  <div class="center-content">
+    <main m-4>
+      <article my-12 font-serif>
+        <h1
+          class="title"
+          text-3xl
+          font-bold
+          my-20
+          style={`text-align: ${data.features.titleAlign}`}
+        >
+          {data?.title}
+        </h1>
+        <slot />
+      </article>
+
+      {
+        /* comments */
+        data.features.comments && (
+          <div class="comments" my-12>
+            <Comments />
+          </div>
+        )
+      }
+    </main>
+  </div>
+</BaseLayout>
+
+<style lang="scss" is:global>
+  p {
+    @apply indent-2em;
+  }
+</style>
