@@ -84,7 +84,15 @@ const navConfig = [
 
 <style lang="scss" scoped>
   @use "sass:math";
+
+  $highlight-background-color:rgba(
+          var(--color-primary-r),
+          var(--color-primary-g),
+          var(--color-primary-b),
+          0.1
+        );
   a {
+    -webkit-tap-highlight-color: transparent;
     display: block !important;
     position: relative;
     width: 100%;
@@ -96,15 +104,10 @@ const navConfig = [
     }
 
     > .bkg {
-      border-radius: 0.5rem;
+      border-radius: 0.25rem;
       &:hover {
         border-radius: 1rem;
-        background-color: rgba(
-          var(--color-primary-r),
-          var(--color-primary-g),
-          var(--color-primary-b),
-          0.1
-        );
+        background-color: $highlight-background-color;
         > .icon {
           color: var(--color-primary-rgba) !important;
         }
