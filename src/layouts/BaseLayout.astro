@@ -24,9 +24,11 @@ import { pwaInfo } from "virtual:pwa-info";
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 
     <!-- Set Color Theme -->
-    <script>
-      import {getPrefersColorScheme} from "@/scripts/theme";
-      document.documentElement.setAttribute("theme", getPrefersColorScheme());
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+      if (theme === "dark" || theme === "light") {
+        document.documentElement.setAttribute("theme", theme);
+      }
     </script>
   </head>
 
