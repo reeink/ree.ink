@@ -15,8 +15,13 @@ import { pwaInfo } from "virtual:pwa-info";
     <script>
       /* Alternative to 100 vh on mobile devices */
       /* https://chanind.github.io/javascript/2019/09/28/avoid-100vh-on-mobile-web.html */
-      const vh100 = window.innerHeight;
-      document.documentElement.style.setProperty("--100vh", `${vh100}px`);
+      const get100vh = () => {
+        const vh100 = window.innerHeight;
+        document.documentElement.style.setProperty("--100vh", `${vh100}px`);
+      };
+      window.addEventListener("resize", get100vh);
+      window.addEventListener("orientationchange", get100vh);
+      window.addEventListener("DOMContentLoaded", get100vh);
     </script>
 
     <!-- PWA inject -->
