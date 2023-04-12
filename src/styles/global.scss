@@ -114,7 +114,7 @@ body {
   }
 
   /* transitions */
-  transition: all 0.5s ease;
+  transition: all 0.8s ease;
 
   /* default fonts */
   @apply font-sans;
@@ -130,7 +130,7 @@ body {
 
   /* center content */
   .center-content {
-    width: $max-width-center;
+    max-width: $max-width-center;
     margin: 0 auto;
   }
 }

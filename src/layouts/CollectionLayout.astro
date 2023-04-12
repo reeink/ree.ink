@@ -39,13 +39,13 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
   <MetaInfo slot="head" />
 
   <!-- left side nav -->
-  <nav h-full slot="left">
+  <nav h-full w-20 slot="left">
     <fixed w-20 h-full p-2>
       <SideNav />
     </fixed>
   </nav>
 
-  <main class="center-content">
+  <main class="center-content" w-full>
     <h1 class="title" text="center 4xl" font-display my-20>{collection}</h1>
     <ul class="collection-index" font-serif>
       {

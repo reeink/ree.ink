@@ -32,15 +32,17 @@ import { pwaInfo } from "virtual:pwa-info";
     </script>
   </head>
 
-  <body flex>
-    <div class="left"><slot name="left" /></div>
-    <div class="center" flex-auto><slot /></div>
-    <div class="right"><slot name="right" /></div>
+  <body>
+    <flex>
+      <div class="left"><slot name="left" /></div>
+      <div class="center flex-auto"><slot /></div>
+      <div class="right"><slot name="right" /></div>
+    </flex>
   </body>
 </html>
 
 <style lang="scss">
-  body {
+  flex {
     min-height: var(--100vh);
   }
 </style>

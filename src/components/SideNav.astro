@@ -83,6 +83,7 @@ const navConfig = [
 </script>
 
 <style lang="scss" scoped>
+  @use "sass:math";
   a {
     display: block !important;
     position: relative;
@@ -94,11 +95,8 @@ const navConfig = [
       padding-top: 100%;
     }
 
-    * {
-      @apply transition-all duration-600;
-    }
-
     > .bkg {
+      border-radius: 0.5rem;
       &:hover {
         border-radius: 1rem;
         background-color: rgba(
@@ -116,14 +114,16 @@ const navConfig = [
       left: 0;
       width: 100% !important;
       height: 100% !important;
+      transition: all 0.4s ease;
 
       > .icon {
+        $icon-size: 40%;
         color: var(--color-contrast-high) !important;
         position: absolute;
-        top: 30%;
-        left: 30%;
-        width: 40%;
-        height: 40%;
+        top: math.div(100% - $icon-size, 2);
+        left: math.div(100% - $icon-size, 2);
+        width: $icon-size;
+        height: $icon-size;
       }
     }
   }
