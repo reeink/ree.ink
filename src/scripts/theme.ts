@@ -25,6 +25,32 @@ export function getCurrentColorTheme() {
 export function setCurrentColorTheme(theme: Theme) {
   const root = document.documentElement;
   root.setAttribute("theme", theme);
+  setGiscusTheme(theme);
+}
+
+// https://github.com/giscus/giscus/issues/336
+export function setGiscusTheme(theme: Theme) {
+  const getGiscusTheme = (theme: Theme) => {
+    switch (theme) {
+      case "light":
+        return "light";
+      case "dark":
+        return "dark";
+      default:
+        return "preferred_color_scheme";
+    };
+  }
+
+  function sendMessage(message: any) {
+    const iframe = document.querySelector('iframe.giscus-frame') as HTMLIFrameElement | null;
+    if (!iframe || !iframe.contentWindow) return;
+    iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+  sendMessage({
+    setConfig: {
+      theme: getGiscusTheme(theme),
+    },
+  });
 }
 
 export function savePrefersColorScheme(theme: Theme) {

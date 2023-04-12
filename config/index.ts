@@ -54,7 +54,11 @@ export const defineConfig = (
       data_reactions_enabled: "1",
       data_emit_metadata: "0",
       data_input_position: "top",
-      data_theme: "preferred_color_scheme",
+      data_theme: {
+        auto: "preferred_color_scheme",
+        light: "light",
+        dark: "dark",
+      },
       data_loading: "lazy",
       crossorigin: "anonymous",
     };
@@ -62,9 +66,8 @@ export const defineConfig = (
   conf.footer =
     conf.footer ||
     <types.Footer>{
-      copyright: `<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a> 2021-${new Date().getFullYear()} © ${
-        conf.base.author
-      }`,
+      copyright: `<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a> 2021-${new Date().getFullYear()} © ${conf.base.author
+        }`,
     };
 
   return conf as types.RequiredConfig;
