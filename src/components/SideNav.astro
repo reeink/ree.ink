@@ -100,25 +100,70 @@ const navConfig = [
   for (let themeSwitch of themeSwitches) {
     themeSwitch.addEventListener("click", toggleThemeByIndex);
   }
+</script>
 
+<script is:inline>
   /* Listen to control panel */
-  const controlPanel = document.querySelector(".control-panel");
-  const sideNav = document.querySelector(".side-nav");
-  const root = document.documentElement;
-  if (controlPanel && sideNav) {
-    controlPanel.addEventListener("click", () => {
-      console.log("click");
+  const getStoragePinState = () => {
+    const pinState = localStorage.getItem("pinState");
+    if (pinState === "true") {
+      return true;
+    } else if (pinState === "false") {
+      return false;
+    } else {
+      return undefined;
+    }
+  };
+  const getCurPinState = () => {
+    const sideNav = document.querySelector(".side-nav");
+    if (sideNav) {
+      return sideNav.classList.contains("pin");
+    } else {
+      return undefined;
+    }
+  }
+  const changePinState = (state) => {
+    const sideNav = document.querySelector(".side-nav");
+    const root = document.documentElement;
+    if (!sideNav) return;
+
+    const curPinState = getCurPinState();
+    if (curPinState !== undefined && curPinState !== state) {
+      localStorage.setItem("pinState", state.toString());
       sideNav.classList.toggle("pin");
-      if (sideNav.classList.contains("pin")) {
-        // Unpin
-        console.log("pin");
-        root.style.removeProperty("--sidenav-width");
-      } else {
-        // Pin
-        console.log("Unpin");
+      if (curPinState) {
         root.style.setProperty("--sidenav-width", "0");
+      } else {
+        root.style.removeProperty("--sidenav-width");
       }
+    }
+  };
+
+  const controlPanel = document.querySelector(".control-panel");
+  if (controlPanel) {
+    controlPanel.addEventListener("click", () => {
+      const curPinState = getCurPinState();
+      if (curPinState === undefined) {
+        return;
+      }
+      changePinState(!curPinState);
     });
+  }
+
+  /* Listen to local storage */
+  window.addEventListener("storage", (e) => {
+    if (e.key === "pinState") {
+      const pinState = getStoragePinState();
+      if (pinState !== undefined) {
+        changePinState(pinState);
+      }
+    }
+  });
+
+  /* Load Default Pin State */
+  const defaultPinState = getStoragePinState();
+  if (defaultPinState !== undefined) {
+    changePinState(defaultPinState);
   }
 </script>
 
