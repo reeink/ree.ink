@@ -3,6 +3,9 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import AstroPWA from "@vite-pwa/astro";
 import UnoCSS from "@unocss/astro";
+import * as child from "child_process";
+
+const commitHash = child.execSync("git rev-parse HEAD").toString().trim();
 
 // https://astro.build/config
 export default defineConfig({
@@ -94,4 +97,9 @@ export default defineConfig({
       wrap: true,
     },
   },
+  vite: {
+    define: {
+      __COMMIT_HASH__: JSON.stringify(commitHash),
+    }
+  }
 });
