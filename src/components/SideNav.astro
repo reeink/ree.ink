@@ -26,16 +26,24 @@ const linksNavConfig = [
   { name: "Search", type: "link", order:2, icon: "i-carbon-search", link: "/search" },
 ];
 
+const panelConfig = {
+  name: "Pin Panel",
+  type: "pin-panel",
+  order: 1000,
+  icon: "i-carbon-pin",
+}
+
 type LinkNavConfig = typeof linksNavConfig[0];
 
 const navConfig = [
   themeNavConfig,
   ...linksNavConfig,
+  panelConfig,
 ].sort((a, b) => a.order - b.order);
 ---
 
-<div class="side-nav" h-full w-full>
-  <flex-col>
+<div class="side-nav pin" h-full w-full>
+  <flex flex-col h-full>
     {
       navConfig.map((item) => {
         switch(item.type) {
@@ -68,17 +76,49 @@ const navConfig = [
                 </div>
               </a>
             );
+          
+          case "pin-panel":
+            const panelItem = item as typeof panelConfig;
+            return (
+              <div class="divider flex-auto" />
+              <a title={panelItem.name} class="control-panel">
+                <div class="bkg">
+                  <div class={`icon ${panelItem.icon}`} />
+                </div>
+              </a>
+            )
         }
       })
     }
-  </flex-col>
+  </flex>
 </div>
 
 <script>
+  /* Listen to theme switch */
   import { toggleThemeByIndex } from "@/scripts/theme";
   const themeSwitches = document.querySelectorAll(".theme-switch");
   for (let themeSwitch of themeSwitches) {
     themeSwitch.addEventListener("click", toggleThemeByIndex);
+  }
+
+  /* Listen to control panel */
+  const controlPanel = document.querySelector(".control-panel");
+  const sideNav = document.querySelector(".side-nav");
+  const root = document.documentElement;
+  if (controlPanel && sideNav) {
+    controlPanel.addEventListener("click", () => {
+      console.log("click");
+      sideNav.classList.toggle("pin");
+      if (sideNav.classList.contains("pin")) {
+        // Unpin
+        console.log("pin");
+        root.style.removeProperty("--sidenav-width");
+      } else {
+        // Pin
+        console.log("Unpin");
+        root.style.setProperty("--sidenav-width", "0");
+      }
+    });
   }
 </script>
 
@@ -106,7 +146,7 @@ const navConfig = [
     > .bkg {
       border-radius: 0.25rem;
       &:hover {
-        border-radius: 1rem;
+        border-radius: 1rem !important;
         background-color: $highlight-background-color;
         > .icon {
           color: var(--color-primary-rgba) !important;
@@ -130,4 +170,35 @@ const navConfig = [
       }
     }
   }
+
+  /* Side Nav Pin or Unpin */
+  .side-nav {
+    border-radius: 0.25rem;
+    transition: opacity 0.5s ease;
+    backdrop-filter: blur(0.5rem);
+
+    &.pin {
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: 1 !important;
+    }
+    &:not(.pin) {
+      opacity: 0;
+    }
+    
+    &.pin {
+      .control-panel > .bkg {
+        border-radius: 1.5rem;
+        background-color: $highlight-background-color;
+        > .icon {
+          color: var(--color-primary-rgba) !important;
+        }
+      }
+    }
+  }
+
+  /* Side Nav background */
+
 </style>

@@ -5,12 +5,12 @@ import { pwaInfo } from "virtual:pwa-info";
 import SideNav from "@/components/SideNav.astro";
 
 interface Props {
-  displaySubNav?: boolean;
+  displaySideNav?: boolean;
   sideNavPlace?: "left" | "right";
 }
 
-let { displaySubNav, sideNavPlace } = Astro.props as Props;
-displaySubNav ??= true;
+let { displaySideNav, sideNavPlace } = Astro.props as Props;
+displaySideNav ??= true;
 sideNavPlace ??= "left";
 ---
 
@@ -45,6 +45,15 @@ sideNavPlace ??= "left";
         document.documentElement.setAttribute("theme", theme);
       }
     </script>
+
+    { displaySideNav && (
+      <style lang="scss">
+        .sidenav-banner {
+          width: var(--sidenav-width, 5rem);
+          transition: width 0.3s ease;
+        }
+      </style>
+    )}
   </head>
 
   <body>
@@ -52,8 +61,9 @@ sideNavPlace ??= "left";
       <div class="left">
         {
           // Display Left SideNav
-          displaySubNav && sideNavPlace === "left" && (
-            <nav fixed w-20 h-full p-2>
+          displaySideNav && sideNavPlace === "left" && (
+            <div class="sidenav-banner" />
+            <nav fixed w-20 h-full p-2 class="sidenav">
               <SideNav />
             </nav>
           )
@@ -67,10 +77,11 @@ sideNavPlace ??= "left";
 
         {
           // Display Right SideNav
-          displaySubNav && sideNavPlace === "right" && (
-              <nav fixed w-20 h-full p-2>
-                <SideNav />
-              </nav>
+          displaySideNav && sideNavPlace === "right" && (
+            <div class="sidenav-banner" />
+            <nav fixed w-20 h-full p-2 class="sidenav">
+              <SideNav />
+            </nav>
           )
         }
       </div>
