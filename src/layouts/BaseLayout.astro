@@ -53,10 +53,8 @@ sideNavPlace ??= "left";
         {
           // Display Left SideNav
           displaySubNav && sideNavPlace === "left" && (
-            <nav h-full w-20 slot="right">
-              <fixed w-20 h-full p-2>
-                <SideNav />
-              </fixed>
+            <nav fixed w-20 h-full p-2>
+              <SideNav />
             </nav>
           )
         }
@@ -70,11 +68,9 @@ sideNavPlace ??= "left";
         {
           // Display Right SideNav
           displaySubNav && sideNavPlace === "right" && (
-            <nav h-full w-20 slot="right">
-              <fixed w-20 h-full p-2>
+              <nav fixed w-20 h-full p-2>
                 <SideNav />
-              </fixed>
-            </nav>
+              </nav>
           )
         }
       </div>
