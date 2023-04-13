@@ -2,6 +2,16 @@
 import config from "@config";
 import "@/styles/global.scss";
 import { pwaInfo } from "virtual:pwa-info";
+import SideNav from "@/components/SideNav.astro";
+
+interface Props {
+  displaySubNav?: boolean;
+  sideNavPlace?: "left" | "right";
+}
+
+let { displaySubNav, sideNavPlace } = Astro.props as Props;
+displaySubNav ??= true;
+sideNavPlace ??= "left";
 ---
 
 <html lang={config.base.lang} theme={config.base.theme}>
@@ -39,9 +49,35 @@ import { pwaInfo } from "virtual:pwa-info";
 
   <body>
     <flex>
-      <div class="left"><slot name="left" /></div>
+      <div class="left">
+        {
+          // Display Left SideNav
+          displaySubNav && sideNavPlace === "left" && (
+            <nav h-full w-20 slot="right">
+              <fixed w-20 h-full p-2>
+                <SideNav />
+              </fixed>
+            </nav>
+          )
+        }
+
+        <slot name="left" />
+      </div>
       <div class="center flex-auto"><slot /></div>
-      <div class="right"><slot name="right" /></div>
+      <div class="right">
+        <slot name="right" />
+
+        {
+          // Display Right SideNav
+          displaySubNav && sideNavPlace === "right" && (
+            <nav h-full w-20 slot="right">
+              <fixed w-20 h-full p-2>
+                <SideNav />
+              </fixed>
+            </nav>
+          )
+        }
+      </div>
     </flex>
   </body>
 </html>
