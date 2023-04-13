@@ -3,6 +3,15 @@ const allThemesArray = Array.from(allThemes);
 const ThemesCount = allThemes.size;
 type Theme = typeof allThemes extends Set<infer T> ? T : never;
 
+window.addEventListener("storage", (e) => {
+  if (e.key === "theme") {
+    const theme = e.newValue as Theme;
+    if (allThemes.has(theme)) {
+      setCurrentTheme(theme);
+    }
+  }
+});
+
 export function getPrefersColorScheme(): Theme {
   const localStorageTheme = localStorage.getItem("theme");
   if (localStorageTheme && allThemes.has(localStorageTheme as any)) {
@@ -12,7 +21,7 @@ export function getPrefersColorScheme(): Theme {
   }
 }
 
-export function getCurrentColorTheme() {
+export function getCurrentTheme() {
   const root = document.documentElement;
   const theme = root.getAttribute("theme");
   if (theme && allThemes.has(theme as any)) {
@@ -22,7 +31,7 @@ export function getCurrentColorTheme() {
   }
 }
 
-export function setCurrentColorTheme(theme: Theme) {
+export function setCurrentTheme(theme: Theme) {
   const root = document.documentElement;
   root.setAttribute("theme", theme);
   setGiscusTheme(theme);
@@ -58,7 +67,7 @@ export function savePrefersColorScheme(theme: Theme) {
 }
 
 export function toggleThemeByIndex() {
-  const currentTheme = getCurrentColorTheme();
+  const currentTheme = getCurrentTheme();
   let i = 0;
   for (; i < ThemesCount; i++) {
     if (allThemesArray[i] === currentTheme) {
@@ -66,6 +75,6 @@ export function toggleThemeByIndex() {
     }
   }
   const nextTheme = allThemesArray[(i + 1) % ThemesCount];
-  setCurrentColorTheme(nextTheme);
+  setCurrentTheme(nextTheme);
   savePrefersColorScheme(nextTheme);
 }
