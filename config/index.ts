@@ -45,7 +45,7 @@ export const defineConfig = (
     <types.GiscusComments>{
       type: "giscus",
       src: "https://giscus.app/client.js",
-      data_repo: "sperjar/astro-lithe",
+      data_repo: "sperjar/ree.ink",
       data_repo_id: "R_kgDOJG_UwQ",
       data_category: "Comments",
       data_category_id: "DIC_kwDOJG_Uwc4CU8_P",
