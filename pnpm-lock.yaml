@@ -10,7 +10,7 @@ dependencies:
     version: 0.19.7(astro@2.8.3)
   astro:
     specifier: ^2.8.3
-    version: 2.8.3(sass@1.60.0)
+    version: 2.8.3(sass@1.63.6)
 
 devDependencies:
   '@vite-pwa/astro':
@@ -23,8 +23,8 @@ devDependencies:
     specifier: ^0.11.0
     version: 0.11.0
   sass:
-    specifier: ^1.60.0
-    version: 1.60.0
+    specifier: ^1.63.6
+    version: 1.63.6
   workbox-window:
     specifier: ^6.5.4
     version: 6.5.4
@@ -80,7 +80,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.8.3(sass@1.60.0)
+      astro: 2.8.3(sass@1.63.6)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1939,7 +1939,7 @@ packages:
       astro: ^1.6.0 || ^2.0.0
       vite-plugin-pwa: ^0.14.0
     dependencies:
-      astro: 2.8.3(sass@1.60.0)
+      astro: 2.8.3(sass@1.63.6)
       vite-plugin-pwa: 0.14.4(vite@4.4.4)(workbox-build@6.5.4)(workbox-window@6.5.4)
     dev: true
 
@@ -2039,7 +2039,7 @@ packages:
     hasBin: true
     dev: false
 
-  /astro@2.8.3(sass@1.60.0):
+  /astro@2.8.3(sass@1.63.6):
     resolution: {integrity: sha512-UopGl3WubMnl15TWlR6PTCcH54TooZ+JoAloErfoXQtz4PAvmEEqEVc7tHoJ45iC7rhKgzILsvDhqzitBeRihw==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -2100,7 +2100,7 @@ packages:
       typescript: 5.0.2
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.4.4(sass@1.60.0)
+      vite: 4.4.4(sass@1.63.6)
       vitefu: 0.2.4(vite@4.4.4)
       which-pm: 2.0.0
       yargs-parser: 21.1.1
@@ -4520,9 +4520,9 @@ packages:
     dependencies:
       suf-log: 2.5.3
 
-  /sass@1.60.0:
-    resolution: {integrity: sha512-updbwW6fNb5gGm8qMXzVO7V4sWf7LMXnMly/JEyfbfERbVH46Fn6q02BX7/eHTdKpE7d+oTkMMQpFWNUMfFbgQ==}
-    engines: {node: '>=12.0.0'}
+  /sass@1.63.6:
+    resolution: {integrity: sha512-MJuxGMHzaOW7ipp+1KdELtqKbfAWbH7OLIdoSMnVe3EXPMTmxTmlaZDCTsgIpPCs3w99lLo9/zDKkOrJuT5byw==}
+    engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
       chokidar: 3.5.3
@@ -5056,14 +5056,14 @@ packages:
       fast-glob: 3.2.12
       pretty-bytes: 6.1.0
       rollup: 3.26.2
-      vite: 4.4.4(sass@1.60.0)
+      vite: 4.4.4(sass@1.63.6)
       workbox-build: 6.5.4
       workbox-window: 6.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@4.4.4(sass@1.60.0):
+  /vite@4.4.4(sass@1.63.6):
     resolution: {integrity: sha512-4mvsTxjkveWrKDJI70QmelfVqTm+ihFAb6+xf4sjEU2TmUCTlVX87tmg/QooPEMQb/lM9qGHT99ebqPziEd3wg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -5094,7 +5094,7 @@ packages:
       esbuild: 0.18.13
       postcss: 8.4.26
       rollup: 3.26.2
-      sass: 1.60.0
+      sass: 1.63.6
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -5106,7 +5106,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.4(sass@1.60.0)
+      vite: 4.4.4(sass@1.63.6)
 
   /vscode-css-languageservice@6.2.4:
     resolution: {integrity: sha512-9UG0s3Ss8rbaaPZL1AkGzdjrGY8F+P+Ne9snsrvD9gxltDGhsn8C2dQpqQewHrMW37OvlqJoI8sUU2AWDb+qNw==}
