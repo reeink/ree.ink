@@ -16,7 +16,7 @@
   "devDependencies": {
     "@vite-pwa/astro": "^0.0.5",
     "prettier": "^3.0.0",
-    "prettier-plugin-astro": "^0.8.0",
+    "prettier-plugin-astro": "^0.11.0",
     "sass": "^1.60.0",
     "workbox-window": "^6.5.4"
   }
