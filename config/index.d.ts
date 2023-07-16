@@ -58,7 +58,11 @@ export interface GiscusComments {
   data_reactions_enabled: string;
   data_emit_metadata: string;
   data_input_position: string;
-  data_theme: string;
+  data_theme: {
+    auto: string;
+    light: string;
+    dark: string;
+  }
   data_loading: string;
   crossorigin: string;
 }

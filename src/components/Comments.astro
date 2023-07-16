@@ -1,30 +1,37 @@
----
-import config from "@config";
-const comments = config.comments;
----
+<div id="comments-root"></div>
+<script>
+  import config from "@config";
+  import { getPrefersColorScheme } from "../scripts/theme";
+  const c = config.comments;
 
-{
-  comments.type === "giscus" && (
-    <div class="comments">
-      <script
-        src={comments.src}
-        data-repo={comments.data_repo}
-        data-repo-id={comments.data_repo_id}
-        data-category={comments.data_category}
-        data-category-id={comments.data_category_id}
-        data-mapping={comments.data_mapping}
-        data-strict={comments.data_strict}
-        data-reactions-enabled={comments.data_reactions_enabled}
-        data-emit-metadata={comments.data_emit_metadata}
-        data-input-position={comments.data_input_position}
-        data-theme={comments.data_theme}
-        data-lang={config.base.lang}
-        data-loading={comments.data_loading}
-        crossorigin={comments.crossorigin}
-        async
-      />
-    </div>
-  )
-}
+  // https://github.com/giscus/giscus/issues/336
+  document.addEventListener("DOMContentLoaded", function () {
+    if (c.type === "giscus") {
+      const giscusAttributes = {
+        src: c.src,
+        "data-repo": c.data_repo,
+        "data-repo-id": c.data_repo_id,
+        "data-category": c.data_category,
+        "data-category-id": c.data_category_id,
+        "data-mapping": c.data_mapping,
+        "data-strict": c.data_strict,
+        "data-reactions-enabled": c.data_reactions_enabled,
+        "data-emit-metadata": c.data_emit_metadata,
+        "data-input-position": c.data_input_position,
+        "data-theme": c.data_theme[getPrefersColorScheme()],
+        "data-lang": config.base.lang,
+        "data-loading": c.data_loading,
+        crossorigin: c.crossorigin,
+        async: "",
+      };
 
-<style lang="scss"></style>
+      // Dynamically create script tag
+      const commentsRoot = document.getElementById("comments-root");
+      const giscusScript = document.createElement("script");
+      Object.entries(giscusAttributes).forEach(([key, value]) =>
+        giscusScript.setAttribute(key, value)
+      );
+      if (commentsRoot) commentsRoot.appendChild(giscusScript);
+    }
+  });
+</script>

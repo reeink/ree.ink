@@ -1,0 +1,44 @@
+---
+export interface MetaInfo {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  author?: string;
+  image?: string;
+  locale?: string;
+  url?: string;
+  type?: string;
+  site_name?: string;
+}
+
+const metaInfo = Astro.props as MetaInfo;
+---
+
+<!-- basic meta tags -->
+<title>{metaInfo.title}</title>
+<meta name="title" content={metaInfo.title} />
+<meta name="description" content={metaInfo.description} />
+<meta name="keywords" content={metaInfo.keywords} />
+<meta name="author" content={metaInfo.author} />
+<meta name="image" content={metaInfo.image} />
+<meta name="url" content={metaInfo.url} />
+<meta name="type" content={metaInfo.type} />
+<meta name="site_name" content={metaInfo.site_name} />
+
+<!-- twitter card -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content={metaInfo.title} />
+<meta property="twitter:description" content={metaInfo.description} />
+<meta property="twitter:image" content={metaInfo.image} />
+<meta property="twitter:url" content={metaInfo.url} />
+<meta property="twitter:site" content={metaInfo.site_name} />
+<meta property="twitter:creator" content={metaInfo.author} />
+
+<!-- open graph -->
+<meta property="og:title" content={metaInfo.title} />
+<meta property="og:description" content={metaInfo.description} />
+<meta property="og:image" content={metaInfo.image} />
+<meta property="og:url" content={metaInfo.url} />
+<meta property="og:site_name" content={metaInfo.site_name} />
+<meta property="og:type" content={metaInfo.type} />
+<meta property="og:locale" content={metaInfo.locale} />
