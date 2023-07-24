@@ -18,7 +18,7 @@
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
     "sass": "^1.63.6",
-    "workbox-window": "^6.5.4",
+    "workbox-window": "^6.6.0",
     "@unocss/astro": "^0.50.6",
     "unocss": "^0.50.6"
   }
