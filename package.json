@@ -20,6 +20,6 @@
     "sass": "^1.63.6",
     "workbox-window": "^6.5.4",
     "@unocss/astro": "^0.50.6",
-    "unocss": "^0.50.6"
+    "unocss": "^0.53.6"
   }
 }
