@@ -11,15 +11,15 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
-    "astro": "^2.8.3"
+    "astro": "^2.9.2"
   },
   "devDependencies": {
-    "@vite-pwa/astro": "^0.0.5",
+    "@vite-pwa/astro": "^0.1.1",
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
-    "sass": "^1.63.6",
-    "workbox-window": "^6.5.4",
-    "@unocss/astro": "^0.50.6",
-    "unocss": "^0.50.6"
+    "sass": "^1.64.1",
+    "workbox-window": "^7.0.0",
+    "@unocss/astro": "^0.53.6",
+    "unocss": "^0.53.6"
   }
 }
