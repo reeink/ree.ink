@@ -2,7 +2,6 @@
 import config from "@config";
 import "@/styles/global.scss";
 import { pwaInfo } from "virtual:pwa-info";
-import SideNav from "@/components/SideNav.astro";
 
 interface Props {
   displaySideNav?: boolean;
@@ -14,7 +13,7 @@ displaySideNav ??= true;
 sideNavPlace ??= "left";
 ---
 
-<html lang={config.base.lang} theme={config.base.theme}>
+<html lang={config.base.lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,45 +45,16 @@ sideNavPlace ??= "left";
         document.documentElement.setAttribute("theme", theme);
       }
     </script>
-
-    { displaySideNav && (
-      <style lang="scss">
-        .sidenav-banner {
-          width: var(--sidenav-width, 5rem);
-          transition: width 0.3s ease;
-        }
-      </style>
-    )}
   </head>
 
   <body>
     <flex>
       <div class="left">
-        {
-          // Display Left SideNav
-          displaySideNav && sideNavPlace === "left" && (
-            <div class="sidenav-banner" />
-            <nav fixed w-20 h-full p-2 class="sidenav">
-              <SideNav />
-            </nav>
-          )
-        }
-
         <slot name="left" />
       </div>
       <div class="center flex-auto"><slot /></div>
       <div class="right">
         <slot name="right" />
-
-        {
-          // Display Right SideNav
-          displaySideNav && sideNavPlace === "right" && (
-            <div class="sidenav-banner" />
-            <nav fixed w-20 h-full p-2 class="sidenav">
-              <SideNav />
-            </nav>
-          )
-        }
       </div>
     </flex>
   </body>
