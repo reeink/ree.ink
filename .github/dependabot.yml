@@ -15,13 +15,24 @@ updates:
               patterns:
                   - "astro"
                   - "@astrojs/*"
-                  # CSS support
+
+          css-deps:
+              patterns:
                   - "sass"
                   - "unocss"
                   - "@unocss/astro"
-                  # PWA support
+                  -
+          pwa-deps:
+              patterns:
                   - "workbox-window"
                   - "@vite-pwa/astro"
-                  # Formatters
+
+          vue-deps:
+              patterns:
+                  - "vue"
+                  - "@vueuse/*"
+
+          formatter-deps:
+              patterns:
                   - "prettier"
                   - "prettier-plugin-astro"
