@@ -1,7 +1,7 @@
 import {
   defineConfig,
   presetIcons,
-  presetMini,
+  presetUno,
   presetWebFonts,
   presetAttributify,
   presetTagify,
@@ -12,7 +12,7 @@ export default defineConfig({
   theme: {
     colors: {
       primary: "var(--color-primary)",
-      cont: {
+      contrast: {
         higher: "var(--color-contrast-higher)",
         high: "var(--color-contrast-high)",
         medium: "var(--color-contrast-medium)",
@@ -21,9 +21,12 @@ export default defineConfig({
       },
     },
   },
+  shortcuts: {
+    "flex-center": "flex items-center justify-center",
+  },
   transformers: [transformerDirectives()],
   presets: [
-    presetMini(),
+    presetUno(),
     presetAttributify(),
     presetTagify(),
     presetIcons({

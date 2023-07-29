@@ -53,44 +53,12 @@ $colors-dark: (
   }
 }
 
-$color-themes: (
-  "light": $colors-light,
-  "dark": $colors-dark,
-);
-
-@each $mode in map-keys($color-themes) {
-  :root[theme=#{$mode}] {
-    @if map-has-key($color-themes, $mode) {
-      @include apply-theme(map.get($color-themes, $mode));
-    }
+:root {
+  &:not(.dark) {
+    @include apply-theme($colors-light);
   }
-}
-
-:root[theme="auto"] {
-  @each $mode in "light", "dark" {
-    @media (prefers-color-scheme: $mode) {
-      @if map-has-key($color-themes, $mode) {
-        @include apply-theme(map.get($color-themes, $mode));
-      }
-    }
-  }
-}
-
-:root[theme="auto"]{
-  [theme="light"], [theme="dark"] {
-    display: none !important;
-  }
-}
-
-:root[theme="light"]{
-  [theme="auto"], [theme="dark"] {
-    display: none !important;
-  }
-}
-
-:root[theme="dark"] {
-  [theme="auto"], [theme="light"] {
-    display: none !important;
+  &.dark {
+    @include apply-theme($colors-dark);
   }
 }
 
@@ -112,9 +80,6 @@ body {
   *::selection {
     background-color: var(--color-selection);
   }
-
-  /* transitions */
-  transition: all 0.8s ease;
 
   /* default fonts */
   @apply font-sans;

@@ -90,7 +90,9 @@ export default defineConfig({
         navigateFallbackAllowlist: [/^\/404$/],
       },
     }),
-    UnoCSS(),
+    UnoCSS({
+      injectReset: true
+    }),
     vue(),
   ],
   markdown: {
