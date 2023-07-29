@@ -11,13 +11,13 @@ import {
 export default defineConfig({
   theme: {
     colors: {
-      primary: "var(--color-primary)",
+      primary: "rgb(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b))",
       contrast: {
-        higher: "var(--color-contrast-higher)",
-        high: "var(--color-contrast-high)",
-        medium: "var(--color-contrast-medium)",
-        low: "var(--color-contrast-low)",
-        lower: "var(--color-contrast-lower)",
+        higher: "rgb(var(--color-contrast-higher-r), var(--color-contrast-higher-g), var(--color-contrast-higher-b))",
+        high: "rbg(var(--color-contrast-high-r), var(--color-contrast-high-g), var(--color-contrast-high-b))",
+        medium: "rgb(var(--color-contrast-medium-r), var(--color-contrast-medium-g), var(--color-contrast-medium-b))",
+        low: "rgb(var(--color-contrast-low-r), var(--color-contrast-low-g), var(--color-contrast-low-b))",
+        lower: "rgb(var(--color-contrast-lower-r), var(--color-contrast-lower-g), var(--color-contrast-lower-b))",
       },
     },
   },

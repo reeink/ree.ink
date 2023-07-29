@@ -28,7 +28,6 @@ $colors-dark: (
   --color-primary-r: 42,
   --color-primary-g: 109,
   --color-primary-b: 244,
-  --color-primary-a: 0.8,
   --color-selection-a: 0.3,
   --color-contrast-higher-r: 255,
   --color-contrast-higher-g: 255,
@@ -48,7 +47,9 @@ $colors-dark: (
 );
 
 @mixin apply-theme($colors) {
-  @each $key, $value in $colors {
+
+  @each $key,
+  $value in $colors {
     #{$key}: $value;
   }
 }
@@ -57,6 +58,7 @@ $colors-dark: (
   &:not(.dark) {
     @include apply-theme($colors-light);
   }
+
   &.dark {
     @include apply-theme($colors-dark);
   }
@@ -64,7 +66,6 @@ $colors-dark: (
 
 :root {
   --color-primary: rgb(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b));
-  --color-primary-rgba: rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), var(--color-primary-a));
   --color-selection: rgba(var(--color-primary-r), var(--color-primary-g), var(--color-primary-b), var(--color-selection-a));
   --color-contrast-higher: rgb(var(--color-contrast-higher-r), var(--color-contrast-higher-g), var(--color-contrast-higher-b));
   --color-contrast-high: rgb(var(--color-contrast-high-r), var(--color-contrast-high-g), var(--color-contrast-high-b));
@@ -77,14 +78,16 @@ body {
   /* default colors */
   color: var(--color-contrast-higher);
   background: var(--color-contrast-lower);
+
   *::selection {
     background-color: var(--color-selection);
   }
 
   /* default fonts */
-  @apply font-sans;
+  --at-apply: font-sans;
+
   code {
-    @apply font-mono;
+    --at-apply: font-mono;
   }
 
   /* paragraph styles */
@@ -98,4 +101,17 @@ body {
     max-width: $max-width-center;
     margin: 0 auto;
   }
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+  --at-apply: bg-contrast-low
+}
+
+::-webkit-scrollbar-thumb {
+  --at-apply: bg-contrast-medium hover:bg-primary/70
 }
