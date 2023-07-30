@@ -21,7 +21,7 @@ updates:
                   - "sass"
                   - "unocss"
                   - "@unocss/*"
-                  -
+
           pwa-deps:
               patterns:
                   - "workbox-window"
