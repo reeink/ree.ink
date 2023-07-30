@@ -40,8 +40,8 @@ export default defineConfig({
       provider: "google",
       fonts: {
         serif: ["Libre Baskerville:400,700", "Noto Serif SC:400,700"],
-        mono: ["Fira Code"],
-        display: ["Cinzel Decorative"],
+        mono: ["Fira Code:400,600"],
+        display: ["Cinzel:400,700"],
       },
     }),
   ],
