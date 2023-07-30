@@ -12,7 +12,7 @@ const toggleDark = useToggle(isDark)
             <a href="/" font-display text-lg>ree</a>
         </section>
         <section class="navigations" grid="~ gap-6 flow-col place-items-center" text-sm>
-            <a href="/posts">Posts</a>
+            <a href="/posts" class="<sm:i-ph-article <sm:text-lg">Posts</a>
             <button class="icon" @click="toggleDark()" i-ph-sun dark:i-ph-moon>
             </button>
         </section>
