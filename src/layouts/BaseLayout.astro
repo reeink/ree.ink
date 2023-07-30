@@ -2,7 +2,7 @@
 import config from "@config";
 import "@/styles/global.scss";
 import { pwaInfo } from "virtual:pwa-info";
-import SideNav from "@/components/SideNav.astro";
+import TopNav from "@/components/TopNav.vue";
 
 interface Props {
   displaySideNav?: boolean;
@@ -14,13 +14,26 @@ displaySideNav ??= true;
 sideNavPlace ??= "left";
 ---
 
-<html lang={config.base.lang} theme={config.base.theme}>
+<html lang={config.base.lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="commit-hash" content={__COMMIT_HASH__}/>
+    <meta name="commit-hash" content={__COMMIT_HASH__} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <slot name="head" />
+
+    <!-- Themes -->
+    <script is:inline>
+      // MIT License @antfu https://github.com/antfu/antfu.me
+      !(function () {
+        var e =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches,
+          t = localStorage.getItem("vueuse-color-scheme") || "auto";
+        ("dark" === t || (e && "light" !== t)) &&
+          document.documentElement.classList.toggle("dark", !0);
+      })();
+    </script>
 
     <!-- get 100vh on mobile devices -->
     <script>
@@ -38,60 +51,21 @@ sideNavPlace ??= "left";
     <!-- PWA inject -->
     <script src="@/scripts/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-
-    <!-- Set Color Theme -->
-    <script is:inline>
-      const theme = localStorage.getItem("theme");
-      if (theme === "dark" || theme === "light") {
-        document.documentElement.setAttribute("theme", theme);
-      }
-    </script>
-
-    { displaySideNav && (
-      <style lang="scss">
-        .sidenav-banner {
-          width: var(--sidenav-width, 5rem);
-          transition: width 0.3s ease;
-        }
-      </style>
-    )}
   </head>
 
-  <body>
-    <flex>
-      <div class="left">
-        {
-          // Display Left SideNav
-          displaySideNav && sideNavPlace === "left" && (
-            <div class="sidenav-banner" />
-            <nav fixed w-20 h-full p-2 class="sidenav">
-              <SideNav />
-            </nav>
-          )
-        }
-
-        <slot name="left" />
-      </div>
-      <div class="center flex-auto"><slot /></div>
-      <div class="right">
-        <slot name="right" />
-
-        {
-          // Display Right SideNav
-          displaySideNav && sideNavPlace === "right" && (
-            <div class="sidenav-banner" />
-            <nav fixed w-20 h-full p-2 class="sidenav">
-              <SideNav />
-            </nav>
-          )
-        }
-      </div>
-    </flex>
+  <body flex="~ col">
+    <header mb-15>
+      <TopNav client:idle />
+    </header>
+    <section flex-1 px-6>
+      <slot />
+    </section>
+    <footer></footer>
   </body>
-</html>
 
-<style lang="scss">
-  flex {
-    min-height: var(--100vh);
-  }
-</style>
+  <style lang="scss">
+    body {
+      min-height: var(--100vh);
+    }
+  </style>
+</html>

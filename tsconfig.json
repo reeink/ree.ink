@@ -3,9 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@config": ["./site.config"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@config": [
+        "./site.config"
+      ]
     },
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "jsx": "preserve"
   }
 }

@@ -26,7 +26,7 @@ const posts = entries
     }
   });
 
-const locale = "en";
+const locale = "zh-CN";
 const dateFormater = new Intl.DateTimeFormat(locale, {
   month: "short",
   day: "numeric",
@@ -38,7 +38,7 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
   <MetaInfo slot="head" />
 
   <main class="center-content" w-full>
-    <h1 class="title" text="center 4xl" font-display my-20>{collection}</h1>
+    <h1 class="title" text-center text-4xl font-display mt-20>{collection}</h1>
     <ul class="collection-index" font-serif>
       {
         posts.map((post) => {
@@ -109,9 +109,4 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
       }
     }
   }
-</style>
-
-<style is:global lang="scss">
-  @import "../styles/mixins.scss";
-  @include layout-3parts();
 </style>

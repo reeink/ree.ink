@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import AstroPWA from "@vite-pwa/astro";
 import UnoCSS from "@unocss/astro";
+import vue from '@astrojs/vue';
 import * as child from "child_process";
 
 const commitHash = child.execSync("git rev-parse HEAD").toString().trim();
@@ -85,11 +86,14 @@ export default defineConfig({
         ],
       },
       devOptions: {
-        enabled: true,
+        enabled: false,
         navigateFallbackAllowlist: [/^\/404$/],
       },
     }),
-    UnoCSS(),
+    UnoCSS({
+      injectReset: true
+    }),
+    vue(),
   ],
   markdown: {
     shikiConfig: {
