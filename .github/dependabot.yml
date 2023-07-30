@@ -20,7 +20,7 @@ updates:
               patterns:
                   - "sass"
                   - "unocss"
-                  - "@unocss/astro"
+                  - "@unocss/*"
                   -
           pwa-deps:
               patterns:
