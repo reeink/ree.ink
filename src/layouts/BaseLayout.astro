@@ -53,13 +53,18 @@ sideNavPlace ??= "left";
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
 
-  <body px-4>
-    <TopNav client:load />
-    <slot />
+  <body flex="~ col">
+    <header mb-15>
+      <TopNav client:idle />
+    </header>
+    <section flex-1 px-6>
+      <slot />
+    </section>
+    <footer></footer>
   </body>
 
   <style lang="scss">
-    flex {
+    body {
       min-height: var(--100vh);
     }
   </style>

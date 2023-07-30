@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../BaseLayout.astro";
 import MetaInfo from "@/components/MetaInfo.astro";
-import Comments from "@/components/Comments.astro";
 import { PostSchema } from "@/scripts/posts";
 
 interface Props {
@@ -18,32 +17,11 @@ const data = PostSchema.parse(frontmatter);
 
   <!-- main content -->
   <main class="center-content" my-20>
-    <article font-serif>
-      <h1
-        class="title"
-        text-3xl
-        font-bold
-        mb-15
-        style={`text-align: ${data.features.titleAlign}`}
-      >
+    <article font-font>
+      <h1 class="title" text-3xl font-bold mb-5>
         {data?.title}
       </h1>
       <slot />
     </article>
-
-    {
-      /* comments */
-      data.features.comments && (
-        <div class="comments" my-12>
-          <Comments />
-        </div>
-      )
-    }
   </main>
 </BaseLayout>
-
-<style lang="scss" is:global>
-  p {
-    @apply indent-2em;
-  }
-</style>

@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { useDark, useToggle } from '@vueuse/core'
+import { useDark, useToggle } from '@vueuse/core';
+import config from '@config';
 
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
 
 
 <template>
-    <nav class="top-nav" flex="~ items-center" h-15 z-10 fixed top-0 inset-x-0 mx-4 backdrop-blur-lg>
-        <section class="logo" mr-auto aspect-square h-full flex-center>
+    <nav class="top-nav" flex="~ items-center" h-15 z-10 fixed top-0 inset-x-0 px-6 backdrop-blur-md>
+        <section class="logo" mr-auto flex-center>
             <a href="/" font-display text-lg>Ree</a>
         </section>
         <section class="navigations" grid="~ gap-6 flow-col place-items-center" text-sm>
