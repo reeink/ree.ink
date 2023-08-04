@@ -36,3 +36,7 @@ updates:
               patterns:
                   - "prettier"
                   - "prettier-plugin-astro"
+
+          comments-deps:
+              patterns:
+                  - "@giscus/vue"

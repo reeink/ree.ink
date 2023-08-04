@@ -1,6 +1,9 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import HtmlBase from "./HtmlBase.astro";
+import PageGrid from "@/components/PageGrid.astro";
 import MetaInfo from "@/components/MetaInfo.astro";
+
+import config from "@config";
 import { getCollection } from "astro:content";
 import type { Collection } from "@/content/config";
 
@@ -26,39 +29,73 @@ const posts = entries
     }
   });
 
-const locale = "zh-CN";
+// split posts by year to create a list like this:
+// [[2021, [post1, post2, ...]], [2020, [post1, post2, ...]], ...]
+const postsByYear = posts.reduce(
+  (acc, post) => {
+    const year = new Date(post.publishedTime).getFullYear();
+    const yearPosts = acc.find((item) => item[0] === year);
+    if (yearPosts) {
+      yearPosts[1].push(post);
+    } else {
+      acc.push([year, [post]]);
+    }
+    return acc;
+  },
+  [] as [number, typeof posts][],
+);
+
+const locale = config.base.lang;
 const dateFormater = new Intl.DateTimeFormat(locale, {
   month: "short",
   day: "numeric",
 });
 ---
 
-<BaseLayout>
-  <!-- header meta info -->
+<HtmlBase>
   <MetaInfo slot="head" />
-
-  <main class="center-content" w-full>
-    <h1 class="title" text-center text-4xl font-display mt-20>{collection}</h1>
-    <ul class="collection-index" font-serif>
+  <PageGrid>
+    <main class="center-content" w-full font-display>
+      <h1 class="title" text-center text-4xl  mt-24 mb-16>
+        {collection}
+      </h1>
       {
-        posts.map((post) => {
+        postsByYear.map((item) => {
+          const year = item[0];
+          const yearHref = '#' + year.toString();
+          const postsPerYear = item[1];
           return (
-            <a class="post-entry" href={`/${collection}/${post.slug}`}>
-              <li>
-                <span class="post-title">{post.title}</span>
-                <span class="post-date">
-                  {dateFormater.format(post.publishedTime)}
-                </span>
-              </li>
-            </a>
+            <>
+              <h2 text-2xl font-bold mt-12 mb-4>
+                <a href={yearHref}>{year}</a>
+              </h2>
+              <ul text-lg>
+                {postsPerYear.map((post) => {
+                  return (
+                    <li mt-3 mb-1>
+                      <a
+                        href={`/${collection}/${post.slug}`}
+                        class="group flex items-center gap-2 px-1 leading-loose hover:color-primary ease duration-300 border-b-1 border-dashed border-color-contrast-medium/40 hover:border-color-primary"
+                      >
+                        <span class="i-ph-dot-outline-duotone color-contrast-medium/60 group-hover:color-primary ease duration-300"></span>
+                        <span class="post-title mr-auto">
+                          {post.title}
+                        </span>
+                        <span>{dateFormater.format(post.publishedTime)}</span>
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </>
           );
         })
       }
-    </ul>
-  </main>
-</BaseLayout>
+    </main>
+  </PageGrid>
+</HtmlBase>
 
-<style lang="scss">
+<!-- <style lang="scss">
   @import "../styles/variables.scss";
 
   .collection-index {
@@ -109,4 +146,4 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
       }
     }
   }
-</style>
+</style> -->

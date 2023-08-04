@@ -1,0 +1,26 @@
+---
+import TopNav from "./TopNav.vue";
+---
+
+<div class="flex flex-col h-full w-full">
+  <header>
+    <slot name="header">
+      <div class="vspace" h-15></div>
+      <TopNav client:idle />
+    </slot>
+  </header>
+  <main class="flex-1 flex mx-6">
+    <section class="left" flex-1>
+      <slot name="left" />
+    </section>
+    <section class="center" flex-initial w-160>
+      <slot />
+    </section>
+    <section class="right" flex-1>
+      <slot name="right" />
+    </section>
+  </main>
+  <footer>
+    <slot name="footer" />
+  </footer>
+</div>
