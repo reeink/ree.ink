@@ -1,0 +1,24 @@
+---
+import Comments from "../Comments.vue";
+import { PostSchema } from "@/scripts/posts";
+
+interface Props {
+  frontmatter: any;
+}
+
+const { frontmatter } = Astro.props as Props;
+const data = PostSchema.parse(frontmatter);
+---
+
+<article font-serif>
+  <h1 class="title" text-3xl text-center font-bold mt-24 mb-16>{data.title}</h1>
+  <slot />
+</article>
+
+{
+  data.features.comments && (
+    <section class="comments" my-20>
+      <Comments client:idle />
+    </section>
+  )
+}

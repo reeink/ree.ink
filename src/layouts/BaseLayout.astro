@@ -3,15 +3,15 @@ import config from "@config";
 import "@/styles/global.scss";
 import { pwaInfo } from "virtual:pwa-info";
 import TopNav from "@/components/TopNav.vue";
+import ArticleStyle from "@/components/post-styles/ArticleStyle.astro";
+import { PostSchema } from "@/scripts/posts";
 
 interface Props {
-  displaySideNav?: boolean;
-  sideNavPlace?: "left" | "right";
+  frontmatter: any;
 }
 
-let { displaySideNav, sideNavPlace } = Astro.props as Props;
-displaySideNav ??= true;
-sideNavPlace ??= "left";
+const { frontmatter } = Astro.props as Props;
+const data = PostSchema.parse(frontmatter);
 ---
 
 <html lang={config.base.lang}>
@@ -60,7 +60,9 @@ sideNavPlace ??= "left";
     <main class="flex-1 flex mx-6">
       <section class="left" flex-auto></section>
       <section class="center" flex-initial max-w-160>
-        <slot />
+        <ArticleStyle frontmatter={frontmatter}>
+          <slot />
+        </ArticleStyle>
       </section>
       <section class="right" flex-auto></section>
     </main>
