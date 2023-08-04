@@ -1,6 +1,3 @@
-@use "sass:map";
-@import "./variables.scss";
-
 $colors-light: (
   --color-primary-r: 42,
   --color-primary-g: 109,
@@ -88,19 +85,6 @@ body {
 
   code {
     --at-apply: font-mono;
-  }
-
-  /* paragraph styles */
-  p {
-    line-height: $line-height-article-default;
-    text-align: justify;
-  }
-
-  /* center content */
-  .center-content {
-    max-width: $max-width-center;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
