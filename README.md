@@ -1,63 +1,21 @@
-# Astro Lithe
+# ree.ink
 
-![Astro Lithe Header](/public/header.svg)
+👋Hello, this is the source code for my personal website, [ree.ink](https://ree.ink).
 
-## Features
+## Building
 
-- Fast and lightweight powered by [Astro](https://astro.build)
-- Lithe and minimalistic design
-- PWA support
-- Dark mode
+To build the website, you will need to have [Node.js](https://nodejs.org/en/) (Recommended v18.15.0) and pnpm (v8.x) installed. Then, run the following commands:
 
-## Online Demo
-
-- `main` branch: <https://astro-lithe.pages.dev>
-- `dev` branch: <https://dev.astro-lithe.pages.dev>
-- any branch or commit: `https://[branch|commit].pages.dev`
-
-## Quick Start
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/en/)
-- [pnpm](https://pnpm.io/)
-
-### Installation
-
-1. Clone the repo
-
-```sh
-git clone https://github.com/sperjar/astro-lithe.git
-```
-2. Install NPM packages
-
-```sh
+```bash
+# Install dependencies
 pnpm install
-```
 
-3. Start the dev server
-
-```sh
+# Start the development server
 pnpm dev
-```
 
-4. Write your posts in `src/content/posts`
-
-5. Build the site
-
-```sh
+# Build the website
 pnpm build
-```
 
-6. Preview the built site
-
-```sh
+# Preview the built website
 pnpm preview
 ```
-
-### Deployment
-
-- Using your git repo in [Cloudflare Pages](https://pages.cloudflare.com)
-- Config `build.command` to `npm install -g pnpm && pnpm install && pnpm build`
-- Config Environment Variables `NODE_VERSION` to `16.13.0`
-- Confirm the build and deploy
