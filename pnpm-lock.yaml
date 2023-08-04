@@ -46,6 +46,9 @@ devDependencies:
   workbox-window:
     specifier: ^7.0.0
     version: 7.0.0
+  zod:
+    specifier: ^3.21.4
+    version: 3.21.4
 
 packages:
 

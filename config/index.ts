@@ -1,74 +1,49 @@
-import type * as types from "./index.d";
+import { z } from "zod";
 
-export const defineConfig = (
-  conf: Partial<types.Config>
-): types.RequiredConfig => {
-  conf.base = {
-    ...(<types.Base>{
-      author: "reeink",
-      lang: "en",
-      title: "Astro Lithe",
-      description: "A Simple Blog Powered by Astro",
-      keywords: "reeink, Blog, Astro, Markdown",
-      theme: "auto",
-      brand: {
-        type: "text",
-        text: "Lithe",
-      },
-    }),
-    ...conf.base,
-  };
+const base = z.object({
+  author: z.string().default("reeink"),
+  lang: z.string().default("en"),
+  title: z.string().default("Ree's Blog"),
+  description: z.string().default("A Simple Blog Powered by Astro"),
+  keywords: z.string().default("reeink, blog, Astro, Markdown"),
+})
 
-  conf.fonts =
-    conf.fonts ||
-    <types.Fonts>{
-      google: {
-        fonts: [
-          { name: "Libre Baskerville", type: "serif" },
-          { name: "Noto Serif SC", type: "serif" },
-          { name: "Fira Code", type: "monospace" },
-        ],
-        link: "https://fonts.googleapis.com/css2?family=Fira+Code&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@400;700&display=swap",
-      },
-    };
+const noComments = z.object({
+  type: z.literal("none").default("none"),
+});
 
-  conf.nav =
-    conf.nav ||
-    <Array<types.Page>>[
-      { name: "Home", uri: "/" },
-      { name: "Posts", uri: "/posts" },
-      { name: "Settings", uri: "/settings" },
-    ];
+const giscusComments = z.object({
+  type: z.literal("giscus"),
+  src: z.string().default("https://giscus.app/client.js"),
+  data_repo: z.string().default("reeink/ree.ink"),
+  data_repo_id: z.string().default("R_kgDOJG_UwQ"),
+  data_category: z.string().default("Comments"),
+  data_category_id: z.string().default("DIC_kwDOJG_Uwc4CU8_P"),
+  data_mapping: z.string().default("pathname"),
+  data_strict: z.string().default("0"),
+  data_reactions_enabled: z.string().default("1"),
+  data_emit_metadata: z.string().default("0"),
+  data_input_position: z.string().default("top"),
+  data_theme: z.object({
+    auto: z.string().default("preferred_color_scheme"),
+    light: z.string().default("light"),
+    dark: z.string().default("dark"),
+  }),
+  data_loading: z.string().default("lazy"),
+  crossorigin: z.string().default("anonymous"),
+});
 
-  conf.comments =
-    conf.comments ||
-    <types.GiscusComments>{
-      type: "giscus",
-      src: "https://giscus.app/client.js",
-      data_repo: "reeink/ree.ink",
-      data_repo_id: "R_kgDOJG_UwQ",
-      data_category: "Comments",
-      data_category_id: "DIC_kwDOJG_Uwc4CU8_P",
-      data_mapping: "pathname",
-      data_strict: "0",
-      data_reactions_enabled: "1",
-      data_emit_metadata: "0",
-      data_input_position: "top",
-      data_theme: {
-        auto: "preferred_color_scheme",
-        light: "light",
-        dark: "dark",
-      },
-      data_loading: "lazy",
-      crossorigin: "anonymous",
-    };
+const config = z.object({
+  base: base.default({}),
+  comments: z.union([noComments, giscusComments]).default(noComments.parse({})),
+});
 
-  conf.footer =
-    conf.footer ||
-    <types.Footer>{
-      copyright: `<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA 4.0</a> 2021-${new Date().getFullYear()} © ${conf.base.author
-        }`,
-    };
-
-  return conf as types.RequiredConfig;
+type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
 };
+type Config = z.infer<typeof config>;
+type PartialConfig = DeepPartial<Config>;
+
+export function defineConfig(data: PartialConfig): Config {
+  return config.parse(data);
+}
