@@ -16,14 +16,14 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@unocss/astro": "^0.54.0",
-    "@unocss/reset": "^0.54.0",
+    "@unocss/astro": "^0.54.1",
+    "@unocss/reset": "^0.54.1",
     "@vite-pwa/astro": "^0.1.1",
     "@vueuse/core": "^10.2.1",
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
-    "sass": "^1.64.1",
-    "unocss": "^0.54.0",
+    "sass": "^1.64.2",
+    "unocss": "^0.54.1",
     "workbox-window": "^7.0.0"
   }
 }
