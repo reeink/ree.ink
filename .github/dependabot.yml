@@ -37,6 +37,6 @@ updates:
                   - "prettier"
                   - "prettier-plugin-astro"
 
-          zod:
+          comments-deps:
               patterns:
-                  - "zod"
+                  - "@giscus/vue"
