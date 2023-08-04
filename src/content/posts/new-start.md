@@ -11,4 +11,4 @@ title: 新的开始
 ---
 
 [^1]: 如 [Hexo](https://hexo.io/)、[Hugo](https://gohugo.io/) 等
-[^2]: 来自于[antfu, 《关于 Yak Shaving》](https://antfu.me/posts/about-yak-shaving-zh#yak-shaving)
+[^2]: 来自于 [antfu,《关于 Yak Shaving》](https://antfu.me/posts/about-yak-shaving-zh#yak-shaving)
