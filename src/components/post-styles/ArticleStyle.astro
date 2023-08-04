@@ -10,7 +10,7 @@ const { frontmatter } = Astro.props as Props;
 const data = PostSchema.parse(frontmatter);
 ---
 
-<article font-serif>
+<article font-serif class="article-style">
   <h1 class="title" text-3xl text-center font-bold mt-24 mb-16>{data.title}</h1>
   <slot />
 </article>
@@ -22,3 +22,57 @@ const data = PostSchema.parse(frontmatter);
     </section>
   )
 }
+
+<style lang="scss" is:global>
+  .article-style {
+    line-height: 1.7em;
+    text-align: justify;
+
+    // indent bewteen paragraphs
+    p + p {
+      text-indent: 2em;
+    }
+
+    // footnotes styles
+    .footnotes {
+      --at-apply: text-sm;
+
+      ol {
+        padding-left: 2em;
+        list-style-type: decimal;
+
+        li {
+          margin-bottom: 0.8em;
+        }
+      }
+
+      // footnote label styles
+      a {
+        --at-apply: underline underline-contrast-medium/40;
+        --at-apply: ease duration-300;
+        &:hover {
+          --at-apply: color-primary underline-primary/60;
+        }
+      }
+    }
+
+    // footnote content styles
+    a[aria-describedby="footnote-label"]{
+      --at-apply: font-mono;
+      &:before {
+        content: "[";
+      }
+      &:after {
+        content: "]";
+      }
+    }
+
+    // divider line between article and footnotes styles
+    hr:has(+ .footnotes) {
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      border-color: var(--color-contrast-high);
+    }
+
+  }
+</style>
