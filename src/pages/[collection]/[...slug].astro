@@ -3,7 +3,7 @@ import { collections } from "@/content/config";
 import type { Collection } from "@/content/config";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import PostLayout from "@/layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
   const allCollections = Object.keys(collections) as Collection[];
@@ -26,6 +26,6 @@ const { entry } = Astro.props as Props;
 const { Content } = await entry.render();
 ---
 
-<BaseLayout frontmatter={entry.data}>
+<PostLayout frontmatter={entry.data}>
   <Content />
-</BaseLayout>
+</PostLayout>

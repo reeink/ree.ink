@@ -1,3 +1,4 @@
+/// <reference path="../.astro/types.d.ts" />
 /// <reference path="../config/.astro/types.d.ts" />
 /// <reference types="astro/client" />
 /// <reference types="vite-plugin-pwa/info" />

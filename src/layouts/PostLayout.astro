@@ -1,0 +1,19 @@
+---
+import PageGrid from "@/components/PageGrid.astro";
+import HtmlBase from "./HtmlBase.astro";
+import ArticleStyle from "@/components/post-styles/ArticleStyle.astro";
+
+interface Props {
+  frontmatter: any;
+}
+
+const { frontmatter } = Astro.props as Props;
+---
+
+<HtmlBase>
+  <PageGrid>
+    <ArticleStyle frontmatter={frontmatter}>
+      <slot />
+    </ArticleStyle>
+  </PageGrid>
+</HtmlBase>

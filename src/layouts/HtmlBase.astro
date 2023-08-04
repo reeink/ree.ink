@@ -1,27 +1,15 @@
 ---
 import config from "@config";
-import "@/styles/global.scss";
 import { pwaInfo } from "virtual:pwa-info";
-import TopNav from "@/components/TopNav.vue";
-import ArticleStyle from "@/components/post-styles/ArticleStyle.astro";
-import { PostSchema } from "@/scripts/posts";
-
-interface Props {
-  frontmatter: any;
-}
-
-const { frontmatter } = Astro.props as Props;
-const data = PostSchema.parse(frontmatter);
+import "@/styles/global.scss";
 ---
 
+<!DOCTYPE html>
 <html lang={config.base.lang}>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="commit-hash" content={__COMMIT_HASH__} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <slot name="head" />
-
     <!-- Themes -->
     <script is:inline>
       // MIT License @antfu https://github.com/antfu/antfu.me
@@ -52,26 +40,7 @@ const data = PostSchema.parse(frontmatter);
     <script src="@/scripts/pwa.ts"></script>
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
-
-  <body class="flex flex-col">
-    <header mb-15>
-      <TopNav client:idle />
-    </header>
-    <main class="flex-1 flex mx-6">
-      <section class="left" flex-auto></section>
-      <section class="center" flex-initial max-w-160>
-        <ArticleStyle frontmatter={frontmatter}>
-          <slot />
-        </ArticleStyle>
-      </section>
-      <section class="right" flex-auto></section>
-    </main>
-    <footer></footer>
+  <body>
+    <slot />
   </body>
-
-  <style lang="scss">
-    body {
-      min-height: var(--100vh);
-    }
-  </style>
 </html>
