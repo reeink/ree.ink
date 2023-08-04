@@ -53,13 +53,17 @@ sideNavPlace ??= "left";
     {pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
   </head>
 
-  <body flex="~ col">
+  <body class="flex flex-col">
     <header mb-15>
       <TopNav client:idle />
     </header>
-    <section flex-1 px-6>
-      <slot />
-    </section>
+    <main class="flex-1 flex mx-6">
+      <section class="left" flex-auto></section>
+      <section class="center" flex-initial max-w-160>
+        <slot />
+      </section>
+      <section class="right" flex-auto></section>
+    </main>
     <footer></footer>
   </body>
 
