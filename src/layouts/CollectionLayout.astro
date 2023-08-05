@@ -1,10 +1,12 @@
 ---
 import HtmlBase from "./HtmlBase.astro";
 import PageGrid from "@/components/PageGrid.astro";
-import MetaInfo from "@/components/MetaInfo.astro";
+import { SEO } from "astro-seo";
 
 import config from "@config";
+import { capitalizeFirstLetter } from "@/scripts/utils";
 import { getCollection } from "astro:content";
+
 import type { Collection } from "@/content/config";
 
 interface Props {
@@ -42,7 +44,7 @@ const postsByYear = posts.reduce(
     }
     return acc;
   },
-  [] as [number, typeof posts][],
+  [] as [number, typeof posts][]
 );
 
 const locale = config.base.lang;
@@ -53,16 +55,22 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
 ---
 
 <HtmlBase>
-  <MetaInfo slot="head" />
+  <SEO
+    slot="head"
+    charset={config.base.charset}
+    title={capitalizeFirstLetter(collection)}
+    titleTemplate={`%s - ${config.base.title}`}
+    titleDefault="Collection"
+  />
   <PageGrid>
     <main class="center-content" w-full font-display>
-      <h1 class="title" text-center text-4xl  mt-24 mb-16>
+      <h1 class="title" text-center text-4xl mt-24 mb-16>
         {collection}
       </h1>
       {
         postsByYear.map((item) => {
           const year = item[0];
-          const yearHref = '#' + year.toString();
+          const yearHref = "#" + year.toString();
           const postsPerYear = item[1];
           return (
             <>
@@ -77,10 +85,8 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
                         href={`/${collection}/${post.slug}`}
                         class="group flex items-center gap-2 px-1 leading-loose hover:color-primary ease duration-300 border-b-1 border-dashed border-color-contrast-medium/40 hover:border-color-primary"
                       >
-                        <span class="i-ph-dot-outline-duotone color-contrast-medium/60 group-hover:color-primary ease duration-300"></span>
-                        <span class="post-title mr-auto">
-                          {post.title}
-                        </span>
+                        <span class="i-ph-dot-outline-duotone color-contrast-medium/60 group-hover:color-primary ease duration-300" />
+                        <span class="post-title mr-auto">{post.title}</span>
                         <span>{dateFormater.format(post.publishedTime)}</span>
                       </a>
                     </li>

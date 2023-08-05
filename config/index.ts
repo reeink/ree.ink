@@ -12,7 +12,9 @@ import type {
 const base = z.object({
   author: z.string().default("reeink"),
   lang: z.string().default("en"),
-  title: z.string().default("Ree's Blog"),
+  charset: z.string().default("utf-8"),
+  favicon: z.string().default("/favicon.svg"),
+  title: z.string().default("Ree"),
   description: z.string().default("A Simple Blog Powered by Astro"),
   keywords: z.string().default("reeink, blog, Astro, Markdown"),
 })
