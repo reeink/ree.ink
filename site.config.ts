@@ -15,6 +15,6 @@ export default defineConfig({
     lang: "en",
     lightTheme: "light",
     darkTheme: "dark",
-    loading: "lazy",
+    loading: "eager",
   }
 });

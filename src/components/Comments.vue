@@ -8,7 +8,7 @@ const isDark = useDark();
 
 <template>
     <Giscus v-if="config.comments.type === 'giscus'" 
-        :id="config.comments.id"
+        id="giscus-comments"
         :host="config.comments.host"
         :repo="config.comments.repo"
         :repoId="config.comments.repoId"

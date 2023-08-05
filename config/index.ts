@@ -35,7 +35,6 @@ const giscusLoadingSchema: ZodSchema<GiscusLoading> = z.enum(["lazy", "eager"]) 
 
 const giscusComments = z.object({
   type: z.enum(["giscus"]).default("giscus"),
-  id: z.string().optional(),
   host: z.string().optional(),
   repo: giscusRepoSchema,
   repoId: z.string(),
