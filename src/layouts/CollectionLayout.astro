@@ -1,7 +1,6 @@
 ---
 import HtmlBase from "./HtmlBase.astro";
 import PageGrid from "@/components/PageGrid.astro";
-import MetaInfo from "@/components/MetaInfo.astro";
 
 import config from "@config";
 import { getCollection } from "astro:content";
@@ -53,7 +52,6 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
 ---
 
 <HtmlBase>
-  <MetaInfo slot="head" />
   <PageGrid>
     <main class="center-content" w-full font-display>
       <h1 class="title" text-center text-4xl  mt-24 mb-16>
