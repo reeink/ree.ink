@@ -6,8 +6,10 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "prebuild": "generate-pwa-assets",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-pwa-assets": "pwa-assets-generator --preset minimal public/favicon.svg"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
@@ -19,6 +21,7 @@
     "@giscus/vue": "^2.3.0",
     "@unocss/astro": "^0.54.1",
     "@unocss/reset": "^0.54.1",
+    "@vite-pwa/assets-generator": "^0.0.4",
     "@vite-pwa/astro": "^0.1.1",
     "@vueuse/core": "^10.3.0",
     "astro-seo": "^0.7.5",
