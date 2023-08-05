@@ -1,5 +1,6 @@
 ---
 import config from "@config";
+import { SEO } from "astro-seo";
 import { pwaInfo } from "virtual:pwa-info";
 import "@/styles/global.scss";
 ---
@@ -7,9 +8,15 @@ import "@/styles/global.scss";
 <!DOCTYPE html>
 <html lang={config.base.lang}>
   <head>
-    <meta charset="UTF-8" />
+    <link rel="icon" href={config.base.favicon} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <slot name="head" />
+    <slot name="head">
+      <SEO
+        title={config.base.title}
+        description={config.base.description}
+        charset={config.base.charset}
+      />
+    </slot>
     <!-- Themes -->
     <script is:inline>
       // MIT License @antfu https://github.com/antfu/antfu.me
