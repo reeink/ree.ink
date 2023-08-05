@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "prebuild": "generate-pwa-assets",
+    "build": "npm run generate-pwa-assets && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "generate-pwa-assets": "pwa-assets-generator --preset minimal public/favicon.svg"
