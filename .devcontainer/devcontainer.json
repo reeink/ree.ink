@@ -1,6 +1,34 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {}
-  }
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
+  "postCreateCommand": "npm install -g pnpm @antfu/ni",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "antfu.unocss",
+        "Vue.volar",
+        "antfu.theme-vitesse",
+        "wayou.vscode-todo-highlight",
+        "spikespaz.vscode-smoothtype",
+        "antfu.smart-clicks",
+        "usernamehw.errorlens",
+        "EditorConfig.EditorConfig",
+        "MS-CEINTL.vscode-language-pack-zh-hans",
+        "antfu.icons-carbon",
+        "yzhang.markdown-all-in-one",
+        "antfu.open-in-github-button",
+        "redhat.vscode-yaml",
+        "GitHub.copilot",
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github",
+        "esbenp.prettier-vscode",
+        "file-icons.file-icons",
+        "naumovs.color-highlight",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+  "forwardPorts": [
+    3000
+  ]
 }
