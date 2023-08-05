@@ -1,7 +1,6 @@
 {
   "image": "mcr.microsoft.com/devcontainers/typescript-node:18",
-  "postCreateCommand": "npm install -g pnpm @antfu/ni && ni",
-  "postStartCommand": "ni && nr dev",
+  "postCreateCommand": "npm install -g pnpm @antfu/ni",
   "customizations": {
     "vscode": {
       "extensions": [
