@@ -1,4 +1,26 @@
 {
-  "recommendations": ["astro-build.astro-vscode", "EditorConfig.EditorConfig"],
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "antfu.unocss",
+    "Vue.volar",
+    "antfu.theme-vitesse",
+    "wayou.vscode-todo-highlight",
+    "spikespaz.vscode-smoothtype",
+    "antfu.smart-clicks",
+    "usernamehw.errorlens",
+    "EditorConfig.EditorConfig",
+    "MS-CEINTL.vscode-language-pack-zh-hans",
+    "antfu.icons-carbon",
+    "yzhang.markdown-all-in-one",
+    "antfu.open-in-github-button",
+    "redhat.vscode-yaml",
+    "GitHub.copilot",
+    "github.vscode-github-actions",
+    "GitHub.vscode-pull-request-github",
+    "esbenp.prettier-vscode",
+    "file-icons.file-icons",
+    "naumovs.color-highlight",
+    "eamodio.gitlens"
+  ],
   "unwantedRecommendations": []
 }
