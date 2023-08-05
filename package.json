@@ -21,7 +21,6 @@
     "@unocss/reset": "^0.54.1",
     "@vite-pwa/astro": "^0.1.1",
     "@vueuse/core": "^10.3.0",
-    "astro-compress": "^1.1.50",
     "astro-seo": "^0.7.5",
     "prettier": "^3.0.1",
     "prettier-plugin-astro": "^0.11.0",
