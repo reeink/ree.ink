@@ -52,6 +52,26 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
   month: "short",
   day: "numeric",
 });
+
+const CHINESE_ZODIACS = [
+  "rat",
+  "ox",
+  "tiger",
+  "rabbit",
+  "dragon",
+  "snake",
+  "horse",
+  "goat",
+  "monkey",
+  "rooster",
+  "dog",
+  "pig",
+];
+
+const getChineseZodiac = (year: number) => {
+  const index = (year - 1900) % 12;
+  return "icon-" + CHINESE_ZODIACS[index];
+};
 ---
 
 <HtmlBase>
@@ -74,9 +94,15 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
           const postsPerYear = item[1];
           return (
             <>
-              <h2 text-2xl font-bold mt-12 mb-4>
-                <a href={yearHref}>{year}</a>
-              </h2>
+              <div class="year-index flex items-center" mt-12 mb-4>
+                <h2 text-2xl font-bold mr-auto inline-block>
+                  <a href={yearHref}>{year}</a>
+                </h2>
+                <span
+                  text-7
+                  class={getChineseZodiac(year) + " symbolic-animals"}
+                />
+              </div>
               <ul text-lg>
                 {postsPerYear.map((post) => {
                   return (
@@ -100,3 +126,64 @@ const dateFormater = new Intl.DateTimeFormat(locale, {
     </main>
   </PageGrid>
 </HtmlBase>
+
+<style lang="scss">
+  // chinese zodiac icons
+  // https://io-oi.me/tech/add-chinese-zodiac-to-next/
+  @font-face {
+    font-family: "chinese-zodiac";
+    font-display: swap;
+    src: url("/fonts/chinese-zodiac.woff2");
+    src:
+      url("/fonts/chinese-zodiac.woff2") format("woff2"),
+      url("/fonts/chinese-zodiac.woff") format("woff"),
+      url("/fonts/chinese-zodiac.eot") format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .symbolic-animals {
+    display: inline-block;
+    font-family: chinese-zodiac;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .icon-dragon:before {
+    content: "\e806";
+  }
+  .icon-tiger:before {
+    content: "\e809";
+  }
+  .icon-pig:before {
+    content: "\e810";
+  }
+  .icon-horse:before {
+    content: "\e813";
+  }
+  .icon-rat:before {
+    content: "\e816";
+  }
+  .icon-goat:before {
+    content: "\e818";
+  }
+  .icon-snake:before {
+    content: "\e820";
+  }
+  .icon-ox:before {
+    content: "\e822";
+  }
+  .icon-dog:before {
+    content: "\e825";
+  }
+  .icon-rabbit:before {
+    content: "\e826";
+  }
+  .icon-monkey:before {
+    content: "\e829";
+  }
+  .icon-rooster:before {
+    content: "\e82f";
+  }
+</style>
