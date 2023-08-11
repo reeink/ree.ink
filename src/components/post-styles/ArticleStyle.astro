@@ -33,15 +33,35 @@ const data = PostSchema.parse(frontmatter);
       text-indent: 2em;
     }
 
+    // a tag (link) styles
+    a {
+      --at-apply: underline underline-contrast-medium/40;
+      --at-apply: ease duration-300;
+      &:hover {
+        --at-apply: color-primary underline-primary/60;
+      }
+    }
+
+    // ul styles
+    ul {
+      margin-top: 0.4em;
+      margin-bottom: 0.4em;
+      padding-left: 2em;
+      list-style-type: disc;
+      li {
+        line-height: 1.6em;
+      }
+    }
+
     // footnotes styles
     .footnotes {
       --at-apply: text-sm;
 
-      ol {
+      &>ol {
         padding-left: 2em;
         list-style-type: decimal;
 
-        li {
+        &>li {
           margin-bottom: 0.8em;
         }
       }
@@ -51,18 +71,11 @@ const data = PostSchema.parse(frontmatter);
         display: none;
       }
 
-      a {
-        --at-apply: underline underline-contrast-medium/40;
-        --at-apply: ease duration-300;
-        &:hover {
-          --at-apply: color-primary underline-primary/60;
-        }
-      }
     }
 
     // footnote reference styles
     a[aria-describedby="footnote-label"]{
-      --at-apply: font-serif select-none;
+      --at-apply: font-mono select-none decoration-none;
       &:before {
         content: "[";
       }
