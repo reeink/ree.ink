@@ -47,6 +47,10 @@ const data = PostSchema.parse(frontmatter);
       }
 
       // footnote label styles
+      #footnote-label {
+        display: none;
+      }
+
       a {
         --at-apply: underline underline-contrast-medium/40;
         --at-apply: ease duration-300;
@@ -56,7 +60,7 @@ const data = PostSchema.parse(frontmatter);
       }
     }
 
-    // footnote content styles
+    // footnote reference styles
     a[aria-describedby="footnote-label"]{
       --at-apply: font-mono;
       &:before {
