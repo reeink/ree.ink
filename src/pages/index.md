@@ -5,6 +5,4 @@ features:
     comments: false
 ---
 
-Hello! Welcome to my blog.  I like to explore new things and share them with others. I hope you can enjoy my blog.
-
-你好，欢迎来到我的博客！
+Hello! Welcome to my blog. Currently there are only [a few posts here](/posts), but I will continue to update it. I'm don't have much to say, just hope you can enjoy it.🫡
