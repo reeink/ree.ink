@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import AstroPWA from "@vite-pwa/astro";
 import UnoCSS from "@unocss/astro";
 import vue from '@astrojs/vue';
+import Compress from "astro-compress";
 import * as child from "child_process";
 
 const commitHash = child.execSync("git rev-parse HEAD").toString().trim();
@@ -91,6 +92,7 @@ export default defineConfig({
       injectReset: true
     }),
     vue(),
+    Compress(),
   ],
   markdown: {
     shikiConfig: {
