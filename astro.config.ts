@@ -10,6 +10,7 @@ import robotsTxt from 'astro-robots-txt';
 import * as child from "child_process";
 
 const commitHash = child.execSync("git rev-parse HEAD").toString().trim();
+const commitHashShort = child.execSync("git rev-parse --short HEAD").toString().trim();
 
 // https://astro.build/config
 export default defineConfig({
@@ -108,6 +109,7 @@ export default defineConfig({
   vite: {
     define: {
       __COMMIT_HASH__: JSON.stringify(commitHash),
+      __COMMIT_HASH_SHORT__: JSON.stringify(commitHashShort),
     }
   }
 });

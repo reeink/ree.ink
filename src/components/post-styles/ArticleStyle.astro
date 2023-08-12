@@ -8,11 +8,42 @@ interface Props {
 
 const { frontmatter } = Astro.props as Props;
 const data = PostSchema.parse(frontmatter);
+
+const metaInfo = [
+  {
+    icon: "i-ph-clock-clockwise",
+    title: "published time",
+    text: new Date(data.publishedTime).toLocaleDateString("zh-CN", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }),
+  },
+  {
+    icon: "i-ph-git-commit",
+    title: "commit hash",
+    text: __COMMIT_HASH_SHORT__,
+  },
+]
 ---
 
 <article font-serif class="article-style">
   <h1 class="title" text-3xl text-center font-bold mt-24 mb-16>{data.title}</h1>
   <slot />
+  {
+    data.features.metaInfo && (
+      <section class="metainfo font-mono text-sm text-contrast-medium mt-16 flex flex-justify-between">
+        {
+          metaInfo.map(({ icon, title, text }) => (
+            <div class="flex items-center" title={title}>
+              <span class={icon} mr-1 />
+              <span>{text}</span>
+            </div>
+          ))
+        }
+      </section>
+    )
+  }
 </article>
 
 {

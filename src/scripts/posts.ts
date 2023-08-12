@@ -10,11 +10,11 @@ export const PostSchema = z.object({
   features: z
     .object({
       comments: z.coerce.boolean().default(true),
-      titleAlign: z.enum(["left", "center", "right"]).default("center"),
+      metaInfo: z.coerce.boolean().default(true),
     })
     .default({
       comments: true,
-      titleAlign: "center",
+      metaInfo: true,
     }),
 });
 
