@@ -40,7 +40,7 @@ export default defineConfig({
       provider: "google",
       fonts: {
         sans: ["Inter:400,700", "Noto Sans SC:400,700"],
-        serif: ["Libre Baskerville:400,700", "Noto Serif SC:400,700"],
+        serif: ["Noto Serif:400,700", "Noto Serif SC:400,700"],
         mono: ["Fira Code:400,600", "Noto Sans SC:400,700"],
         display: ["Cinzel:400,700", "Noto Serif SC:400,700"],
       },
