@@ -44,8 +44,6 @@ const data = PostSchema.parse(frontmatter);
 
     // ul styles
     ul {
-      margin-top: 0.4em;
-      margin-bottom: 0.4em;
       padding-left: 2em;
       list-style-type: disc;
       li {
@@ -56,13 +54,16 @@ const data = PostSchema.parse(frontmatter);
     // footnotes styles
     .footnotes {
       --at-apply: text-sm;
+      border-top: 1px solid var(--color-contrast-high);
+      margin-top: 4rem;
 
-      &>ol {
+      & > ol {
         padding-left: 2em;
+        margin-top: 0.8rem;
         list-style-type: decimal;
 
-        &>li {
-          margin-bottom: 0.8em;
+        [id^="user-content-fn-"] {
+          line-height: 2em;
         }
       }
 
@@ -70,11 +71,10 @@ const data = PostSchema.parse(frontmatter);
       #footnote-label {
         display: none;
       }
-
     }
 
     // footnote reference styles
-    a[aria-describedby="footnote-label"]{
+    a[aria-describedby="footnote-label"] {
       --at-apply: font-mono select-none decoration-none;
       &:before {
         content: "[";
@@ -83,13 +83,5 @@ const data = PostSchema.parse(frontmatter);
         content: "]";
       }
     }
-
-    // divider line between article and footnotes styles
-    hr:has(+ .footnotes) {
-      margin-top: 4rem;
-      margin-bottom: 1rem;
-      border-color: var(--color-contrast-high);
-    }
-
   }
 </style>

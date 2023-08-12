@@ -9,7 +9,6 @@ publishedTime: 2023-08-04
 
 因此，我需要这样一个新的开始[^3]。也许我不必太纠结于太多事情，只要它能够满足最基本的需求，就足够开始了。最后，希望新的界面能给你带来不一样的体验，当然也欢迎你提出你的建议！
 
----
 
 [^1]: 如 [Hexo](https://hexo.io/)、[Hugo](https://gohugo.io/) 等
 [^2]: 来自于 [antfu,《关于 Yak Shaving》](https://antfu.me/posts/about-yak-shaving-zh#yak-shaving)
