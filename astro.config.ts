@@ -5,12 +5,15 @@ import AstroPWA from "@vite-pwa/astro";
 import UnoCSS from "@unocss/astro";
 import vue from '@astrojs/vue';
 import Compress from "astro-compress";
+import sitemap from '@astrojs/sitemap';
+import robotsTxt from 'astro-robots-txt';
 import * as child from "child_process";
 
 const commitHash = child.execSync("git rev-parse HEAD").toString().trim();
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://ree.ink",
   integrations: [
     mdx(),
     AstroPWA({
@@ -93,6 +96,10 @@ export default defineConfig({
     }),
     vue(),
     Compress(),
+    sitemap(),
+    robotsTxt({
+      host: true,
+    }),
   ],
   markdown: {
     shikiConfig: {
