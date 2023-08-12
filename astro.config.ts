@@ -97,9 +97,7 @@ export default defineConfig({
     vue(),
     Compress(),
     sitemap(),
-    robotsTxt({
-      host: true,
-    }),
+    robotsTxt(),
   ],
   markdown: {
     shikiConfig: {
