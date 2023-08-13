@@ -1,7 +1,7 @@
 import { z } from "astro:content";
 
 export const PostSchema = z.object({
-  title: z.coerce.string().optional(),
+  title: z.coerce.string(),
   description: z.coerce.string().optional(),
   tags: z.array(z.coerce.string().url()).default([]),
   modifiedTime: z.coerce.date().default(new Date(0)),
