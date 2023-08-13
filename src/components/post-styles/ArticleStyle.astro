@@ -28,11 +28,11 @@ const metaInfo = [
 ---
 
 <article font-serif class="article-style">
-  <h1 class="title" text-3xl text-center font-bold mt-24 mb-16>{data.title}</h1>
+  <h1 class="title" text-3xl text-center font-bold mt-24 print:mt-36 mb-16>{data.title}</h1>
   <slot />
   {
     data.features.metaInfo && (
-      <section class="metainfo font-mono text-sm text-contrast-medium mt-16 flex flex-justify-between">
+      <section class="metainfo font-mono text-sm text-contrast-medium mt-16 flex flex-justify-between print:display-none">
         {
           metaInfo.map(({ icon, title, text }) => (
             <div class="flex items-center" title={title}>
@@ -48,7 +48,7 @@ const metaInfo = [
 
 {
   data.features.comments && (
-    <section class="comments" my-20>
+    <section class="comments" my-20 print:display-none>
       <Comments client:idle />
     </section>
   )
