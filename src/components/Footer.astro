@@ -1,0 +1,23 @@
+---
+import config from '@config';
+---
+
+<div id="footer-root" class="flex justify-center items-center gap-2" text-contrast-medium text-sm mt-20 mb-6 cursor-default font-display>
+  <a href={config.base.copyright} target="_blank" title="copyright" class="<sm:i-ph-copyright <sm:text-lg" >copyright</a>
+  { config.base.repo && (
+    <span>·</span>
+    <a href={config.base.repo} target="_blank" title="source" class="<sm:i-ph-github-logo <sm:text-lg">source</a>
+  )}
+  { config.base.email && (
+    <span>·</span>
+    <a href={'mailto://' + config.base.email} title="contact" class="<sm:i-ph-envelope <sm:text-lg">contact</a>
+  )}
+</div>
+
+<style lang="scss">
+  #footer-root {
+    a {
+      --at-apply: hover:text-primary/80 ease duration-300 cursor-pointer;
+    }
+  }
+</style>

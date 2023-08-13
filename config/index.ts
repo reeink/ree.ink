@@ -17,6 +17,9 @@ const base = z.object({
   title: z.string().default("Ree"),
   description: z.string().default("A Simple Blog Powered by Astro"),
   keywords: z.string().default("reeink, blog, Astro, Markdown"),
+  copyright: z.string().url().default("https://creativecommons.org/licenses/by-nc-sa/4.0/"),
+  repo: z.string().url().optional(),
+  email: z.string().email().optional(),
 })
 
 const noComments = z.object({
