@@ -11,8 +11,9 @@ const toggleDark = useToggle(isDark);
         <section class="logo" mr-auto flex-center>
             <a href="/" font-display text-lg>Ree</a>
         </section>
-        <section class="navigations" grid="~ gap-6 flow-col place-items-center" text-sm>
+        <section class="navigations" grid="~ gap-4 flow-col place-items-center" text-sm>
             <a href="/posts" class="<sm:i-ph-article <sm:text-lg">Posts</a>
+            <a href="/rss.xml" class="icon i-ph-rss" title="RSS"/>
             <button class="icon" @click="toggleDark()" i-ph-sun dark:i-ph-moon :title="isDark ? 'dark theme' : 'light theme'">
             </button>
         </section>

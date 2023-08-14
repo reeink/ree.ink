@@ -14,7 +14,9 @@ import "@/styles/global.scss";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="rgb(255,255,255)" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="rgb(28,28,28)" />
+    <meta name="author" content={config.base.author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={config.base.title} href="/rss.xml" />
     <slot name="head">
       <SEO
         title={config.base.title}
