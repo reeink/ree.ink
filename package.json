@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^0.19.7",
-    "@astrojs/sitemap": "^2.0.1",
+    "@astrojs/sitemap": "^2.0.2",
     "@astrojs/vue": "^2.2.1",
-    "astro": "^2.10.7",
+    "astro": "^2.10.12",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -25,9 +25,9 @@
     "@vite-pwa/assets-generator": "^0.0.4",
     "@vite-pwa/astro": "^0.1.1",
     "@vueuse/core": "^10.3.0",
-    "astro-compress": "^2.0.8",
+    "astro-compress": "^2.0.14",
     "astro-robots-txt": "^0.5.0",
-    "astro-seo": "^0.7.5",
+    "astro-seo": "^0.7.6",
     "prettier": "^3.0.1",
     "prettier-plugin-astro": "^0.11.0",
     "sass": "^1.66.1",
