@@ -11,14 +11,14 @@
     "generate-pwa-assets": "pwa-assets-generator --preset minimal public/favicon.svg"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.19.7",
-    "@astrojs/sitemap": "^2.0.2",
-    "@astrojs/vue": "^2.2.1",
-    "astro": "^2.10.14",
+    "@astrojs/mdx": "^1.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/vue": "^3.0.0",
+    "astro": "^3.0.3",
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@astrojs/rss": "^2.4.4",
+    "@astrojs/rss": "^3.0.0",
     "@giscus/vue": "^2.3.0",
     "@unocss/astro": "^0.55.3",
     "@unocss/reset": "^0.55.3",
