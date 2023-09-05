@@ -22,7 +22,7 @@
     "@giscus/vue": "^2.3.0",
     "@unocss/astro": "^0.55.3",
     "@unocss/reset": "^0.55.3",
-    "@vite-pwa/assets-generator": "^0.0.8",
+    "@vite-pwa/assets-generator": "^0.0.9",
     "@vite-pwa/astro": "^0.1.1",
     "@vueuse/core": "^10.4.1",
     "astro-compress": "^2.0.15",
