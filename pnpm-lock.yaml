@@ -35,8 +35,8 @@ devDependencies:
     specifier: ^0.55.3
     version: 0.55.3
   '@vite-pwa/assets-generator':
-    specifier: ^0.0.8
-    version: 0.0.8
+    specifier: ^0.0.9
+    version: 0.0.9
   '@vite-pwa/astro':
     specifier: ^0.1.1
     version: 0.1.1(astro@3.0.8)(vite-plugin-pwa@0.16.4)
@@ -2441,8 +2441,8 @@ packages:
       - rollup
     dev: true
 
-  /@vite-pwa/assets-generator@0.0.8:
-    resolution: {integrity: sha512-3wD1mvYig2qGxPELj1AEa7xg++gALATJv3RC5jKYGHSAFFEq1UMM7gs7nPpPBL7XlR6mIHaynyVSmYdibpG48w==}
+  /@vite-pwa/assets-generator@0.0.9:
+    resolution: {integrity: sha512-cMnSxzK0IAhQ088j6C1d2N+Orib/yE0BO9RBQx52LZZzEH5+vhsqTE/rwv5yf8mzD441/eOq5CbDmIOACjQD+w==}
     engines: {node: '>=16.14.0'}
     hasBin: true
     dependencies:
