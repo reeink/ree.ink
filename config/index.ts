@@ -14,7 +14,7 @@ const base = z.object({
   lang: z.string().default("en"),
   charset: z.string().default("utf-8"),
   favicon: z.string().default("/favicon.svg"),
-  title: z.string().default("Ree"),
+  title: z.string().default("Ree's Blog"),
   description: z.string().default("A Simple Blog Powered by Astro"),
   keywords: z.string().default("reeink, blog, Astro, Markdown"),
   copyright: z.string().url().default("https://creativecommons.org/licenses/by-nc-sa/4.0/"),
