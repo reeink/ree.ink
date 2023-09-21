@@ -21,5 +21,12 @@ export default defineConfig({
     lightTheme: "light",
     darkTheme: "dark",
     loading: "eager",
+  },
+
+  social: {
+    mastodon: {
+      instance: "https://mas.to",
+      username: "reeink",
+    }
   }
 });

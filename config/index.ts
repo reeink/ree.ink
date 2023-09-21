@@ -55,13 +55,22 @@ const giscusComments = z.object({
   loading: giscusLoadingSchema.optional(),
 })
 
+const social = z.object({
+  mastodon: z.object({
+    instance: z.string().url(),
+    username: z.string(),
+  }).optional(),
+})
+
 const config = z.object({
   base: base.default(base.parse({})),
-  comments: z.union([noComments, giscusComments]).default(noComments.parse({}))
+  comments: z.union([noComments, giscusComments]).default(noComments.parse({})),
+  social: social.default(social.parse({}))
 });
 const partialConfig = z.object({
   base: base.partial().optional(),
   comments: z.union([noComments, giscusComments]).optional(),
+  social: social.partial().optional(),
 });
 
 type Config = z.infer<typeof config>;
