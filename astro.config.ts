@@ -111,10 +111,5 @@ export default defineConfig({
       __COMMIT_HASH__: JSON.stringify(commitHash),
       __COMMIT_HASH_SHORT__: JSON.stringify(commitHashShort),
     }
-  },
-  redirects: {
-    '/.well-known/host-meta': `https://mas.to/.well-known/host-meta?resource=acct:reeink@mas.to`,
-    '/.well-known/webfinger': 'https://mas.to/.well-known/webfinger?resource=acct:reeink@mas.to',
-    '/.well-known/nodeinfo': 'https://mas.to/.well-known/webfinger?resource=acct:reeink@mas.to',
   }
 });
