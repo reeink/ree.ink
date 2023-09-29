@@ -13,6 +13,8 @@ const toggleDark = useToggle(isDark);
         </section>
         <section class="navigations" grid="~ gap-4 flow-col place-items-center" text-sm>
             <a href="/posts" class="<sm:i-ph-article <sm:text-lg">Posts</a>
+            <a href="https://github.com/reeink" class="icon i-ph-github-logo" rel="me" title="Github" target="_blank">Github</a>
+            <a href="https://ree.zone/@reeink" class="icon i-ri-mastodon-line" title="Mastodon: @reeink@ree.zone" target="_blank">Mastodon</a>
             <a href="/rss.xml" class="icon i-ph-rss" title="RSS" data-astro-reload />
             <button class="icon" @click="toggleDark()" i-ph-sun dark:i-ph-moon :title="isDark ? 'dark theme' : 'light theme'">
             </button>
