@@ -1,5 +1,4 @@
 ---
-import Comments from "../Comments.vue";
 import { PostSchema } from "@/scripts/posts";
 
 interface Props {
@@ -45,14 +44,6 @@ const metaInfo = [
     )
   }
 </article>
-
-{
-  data.features.comments && (
-    <section class="comments" my-20 print:display-none>
-      <Comments client:idle />
-    </section>
-  )
-}
 
 <style lang="scss" is:global>
   .article-style {
@@ -118,5 +109,13 @@ const metaInfo = [
 
   code {
     --at-apply: font-mono bg-contrast-low px-1 my-0.5 rounded-sm text-sm;
+  }
+
+  h2 {
+    --at-apply: text-2xl font-bold mt-14 mb-6;
+  }
+
+  img {
+    --at-apply: mx-auto my-2;
   }
 </style>
