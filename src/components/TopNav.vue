@@ -11,8 +11,8 @@ const toggleDark = useToggle(isDark);
     <nav class="top-nav" flex="~ items-center" h-15 z-10 fixed top-0 inset-x-0 px-6 backdrop-blur-md>
         <section class="logo" mr-auto flex-center>
             <a href="/" title="Home">
-                <Icon h-8 w-8 op-50 hover:op-100 ease-out duration-500
-                fill-color="var(--color-contrast-higher)" />
+                <Icon h-8 w-8 ease-out duration-500
+                fill-color="var(--color-contrast-medium)" />
             </a>
         </section>
         <section class="navigations" grid="~ gap-4 flow-col place-items-center" text-sm>
