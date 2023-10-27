@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core';
+import Icon from './Icon.vue';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -10,8 +11,8 @@ const toggleDark = useToggle(isDark);
     <nav class="top-nav" flex="~ items-center" h-15 z-10 fixed top-0 inset-x-0 px-6 backdrop-blur-md>
         <section class="logo" mr-auto flex-center>
             <a href="/" title="Home">
-                <img h-8 op-80 hover:op-100  ease duration-500
-                :src="isDark ? '/favicon-dark.svg' : '/favicon.svg'" />
+                <Icon h-8 w-8 op-50 hover:op-100 ease-out duration-500
+                fill-color="var(--color-contrast-higher)" />
             </a>
         </section>
         <section class="navigations" grid="~ gap-4 flow-col place-items-center" text-sm>
