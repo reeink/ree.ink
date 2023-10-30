@@ -11,10 +11,10 @@
     "generate-pwa-assets": "pwa-assets-generator --preset minimal public/favicon.svg"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.1",
-    "@astrojs/sitemap": "^3.0.1",
-    "@astrojs/vue": "^3.0.1",
-    "astro": "^3.2.3",
+    "@astrojs/mdx": "^1.1.3",
+    "@astrojs/sitemap": "^3.0.2",
+    "@astrojs/vue": "^3.0.2",
+    "astro": "^3.4.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
@@ -24,7 +24,7 @@
     "@vite-pwa/assets-generator": "^0.0.10",
     "@vite-pwa/astro": "^0.1.3",
     "@vueuse/core": "^10.5.0",
-    "astro-compress": "^2.0.15",
+    "astro-compress": "^2.2.0",
     "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.0",
     "prettier": "^3.0.3",
