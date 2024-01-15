@@ -21,7 +21,7 @@
     "@astrojs/rss": "^4.0.1",
     "@unocss/astro": "^0.58.3",
     "@unocss/reset": "^0.58.3",
-    "@vite-pwa/assets-generator": "^0.2.2",
+    "@vite-pwa/assets-generator": "^0.2.3",
     "@vite-pwa/astro": "^0.2.0",
     "@vueuse/core": "^10.7.1",
     "astro-compress": "^2.2.5",
