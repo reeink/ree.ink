@@ -32,8 +32,8 @@ devDependencies:
     specifier: ^0.58.3
     version: 0.58.3
   '@vite-pwa/assets-generator':
-    specifier: ^0.2.2
-    version: 0.2.2
+    specifier: ^0.2.4
+    version: 0.2.4
   '@vite-pwa/astro':
     specifier: ^0.2.0
     version: 0.2.0(astro@4.0.8)(vite-plugin-pwa@0.17.4)
@@ -2701,8 +2701,8 @@ packages:
       - rollup
     dev: true
 
-  /@vite-pwa/assets-generator@0.2.2:
-    resolution: {integrity: sha512-Trk0ryNl33te5iSmMIQmGMSaEpcSSmgQwhN45DMVm1cSAueUFCj1WnEfEBOQrWH2NPpTcRKuD3pWrSYgSlorUA==}
+  /@vite-pwa/assets-generator@0.2.4:
+    resolution: {integrity: sha512-DXyPLPR/IpbZPSpo1amZEPghY/ziIwpTUKNaz0v1xG+ELzCXmrVQhVzEMqr2JLSqRxjc+UzKfGJA/YdUuaao3w==}
     engines: {node: '>=16.14.0'}
     hasBin: true
     dependencies:
@@ -7537,6 +7537,7 @@ packages:
 
   /workbox-google-analytics@7.0.0:
     resolution: {integrity: sha512-MEYM1JTn/qiC3DbpvP2BVhyIH+dV/5BjHk756u9VbwuAhu0QHyKscTnisQuz21lfRpOwiS9z4XdqeVAKol0bzg==}
+    deprecated: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
     dependencies:
       workbox-background-sync: 7.0.0
       workbox-core: 7.0.0
