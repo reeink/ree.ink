@@ -11,26 +11,26 @@
     "generate-pwa-assets": "pwa-assets-generator --preset minimal public/favicon.svg"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.0.3",
-    "@astrojs/sitemap": "^3.0.4",
-    "@astrojs/vue": "^4.0.6",
-    "astro": "^4.0.8",
-    "vue": "^3.4.3"
+    "@astrojs/mdx": "^2.2.1",
+    "@astrojs/sitemap": "^3.1.1",
+    "@astrojs/vue": "^4.0.9",
+    "astro": "^4.5.9",
+    "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@astrojs/rss": "^4.0.1",
-    "@unocss/astro": "^0.58.3",
-    "@unocss/reset": "^0.58.3",
-    "@vite-pwa/assets-generator": "^0.2.2",
-    "@vite-pwa/astro": "^0.2.0",
-    "@vueuse/core": "^10.7.1",
-    "astro-compress": "^2.2.5",
+    "@astrojs/rss": "^4.0.5",
+    "@unocss/astro": "^0.58.6",
+    "@unocss/reset": "^0.58.6",
+    "@vite-pwa/assets-generator": "^0.2.4",
+    "@vite-pwa/astro": "^0.3.1",
+    "@vueuse/core": "^10.9.0",
+    "astro-compress": "^2.2.17",
     "astro-robots-txt": "^1.0.0",
-    "astro-seo": "^0.8.0",
-    "prettier": "^3.1.1",
-    "prettier-plugin-astro": "^0.12.3",
-    "sass": "^1.69.6",
-    "unocss": "^0.58.3",
+    "astro-seo": "^0.8.3",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "sass": "^1.72.0",
+    "unocss": "^0.58.6",
     "workbox-window": "^7.0.0",
     "zod": "^3.22.4"
   }
